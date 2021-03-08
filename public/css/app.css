@@ -9524,6 +9524,11 @@ ul.uk-nav-sub {
     font-weight: 400;
 }
 
+.uk-text-normal-black {
+    font-weight: 400;
+    color: black;
+}
+
 .uk-text-bold {
     font-weight: 700;
 }

@@ -12,9 +12,12 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/company.css') }}" rel="stylesheet">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -58,7 +61,8 @@
                                         </a>
                                         <div class="uk-navbar-dropdown uk-margin-remove-top uk-margin-remove-right">
                                             <ul class="uk-nav uk-navbar-dropdown-nav uk-list uk-list-striped">
-                                                <li class="uk-padding-remove"><a href="{{ route('user.profile') }}">Meu Perfil</a></li>
+                                                <li class="uk-padding-remove"><a href="{{ route('user.profile') }}">Meu
+                                                        Perfil</a></li>
                                                 <li class="uk-padding-remove">
                                                     <a href="{{ route('logout') }}"
                                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -97,7 +101,9 @@
         </div>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
-        <script src="{{ asset('js/customApp.js') }}" defer></script>
+        <script src="{{ asset('js/form.js') }}" defer></script>
+        <script src="{{ asset('js/company.js') }}" defer></script>
+
     </body>
 
 </html>

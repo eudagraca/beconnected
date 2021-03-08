@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,12 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-        if (Auth::check()) {
-            return view('home');
-        } else {
-            return abort(404);
-        }
+        $companies = Company::all();
+        return view('home', compact('companies'));
+        // if (Auth::check()) {
+        //     return view('home');
+        // } else {
+        //     return abort(404);
+        // }
     }
 
     /**

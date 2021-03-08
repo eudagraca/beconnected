@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
         "spatie/laravel-permission": "^3.18",
-        "torrix/laravel-ui-uikit": "^3.3"
+        "torrix/laravel-ui-uikit": "^3.3",
+        "vinkla/hashids": "^8.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

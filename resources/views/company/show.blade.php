@@ -43,6 +43,8 @@
                 <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
                     <li><a href="#">Contactos</a></li>
                     <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Galeira</a></li>
+                    <li><a href="#">Denunciar esta empresa</a></li>
                 </ul>
 
                 <ul class="uk-switcher uk-margin">
@@ -67,11 +69,54 @@
                             seriviços</p>
                         <p class="uk-text-left uk-margin-remove-top">{{ $company->main_services }}</p>
                     </li>
+                    <li></li>
+                    <li>
+                        <form>
+                            <fieldset class="uk-fieldset">
+
+                                <p class="uk-text-left">Caro usuário, para o procedimento de denúncia, queira por favor
+                                    preencher o formulário a seguir</p>
+
+                                <div class="uk-margin">
+                                    <input class="uk-input" name="motivation" type="text" placeholder="Motivo">
+                                </div>
+
+                                <div class="uk-margin">
+                                    <textarea class="uk-textarea" rows="5"
+                                        placeholder="Descrição do ocorrido"></textarea>
+                                </div>
+
+                                <div class="uk-margin">
+                                    <button class="uk-button uk-button-secondary uk-align-right"
+                                        type="button">Submeter</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
+    <button class="uk-button uk-button-primary uk-border-rounded uk-button-small" id="open"><span
+            uk-icon="comment"></span></button>
 
-    
+    <div class="uk-card uk-card-default chat-form-popup uk-margin-medium-bottom" id="chat-form">
+        <button id="close" class="uk-margin-small-right uk-align-right uk-margin-small-top uk-text-danger"
+            uk-icon="close"></button>
+        <form action="" class="uk-form-stacked uk-padding">
+            <p class="uk-text-bold uk-text-secondary">Em conversa com {{ $company->company_name }}</p>
+
+            <label class="uk-form-label" for="message">Mensagem</label>
+            <textarea rows="3" placeholder="Escreva uma mensagem" name="message" class="uk-textarea" id="message"
+                required></textarea>
+
+            <button type="submit"
+                class="uk-button uk-button-primary uk-button-small uk-margin-small-top uk-align-right">Enviar<span
+                    uk-icon="chevron-right"></span></button>
+
+
+
+        </form>
+    </div>
 </div>
 @endsection

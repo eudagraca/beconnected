@@ -22,3 +22,6 @@ Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@create')->name('register');
 Route::get('/profile', 'Auth\UserController@profile')->name('user.profile');
 
+Route::resource('company', 'CompanyController');
+
+

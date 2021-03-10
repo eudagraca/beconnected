@@ -104,7 +104,7 @@
         <button id="close" class="uk-margin-small-right uk-align-right uk-margin-small-top uk-text-danger"
             uk-icon="close"></button>
         <form action="" class="uk-form-stacked uk-padding">
-            <p class="uk-text-bold uk-text-secondary">Em conversa com {{ $company->company_name }}</p>
+            <p class="uk-text-bold uk-text-secondary">Ola aqui fala o(a) {{ $company->company_name }} em que podemos ajudar-lhe?</p>
 
             <label class="uk-form-label" for="message">Mensagem</label>
             <textarea rows="3" placeholder="Escreva uma mensagem" name="message" class="uk-textarea" id="message"

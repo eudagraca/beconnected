@@ -6,10 +6,12 @@ use App\Company;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveCompanyRequest;
 use App\Providers\RouteServiceProvider;
+use App\Provincia;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -68,6 +70,8 @@ class RegisterController extends Controller
      */
     protected function create(SaveCompanyRequest $request)
     {
+
+        $provincia = Provincia::all();
         if ($request->role == 'company') {
             $role = Role::findByName($request->role);
             $user = User::create([
@@ -75,7 +79,28 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-            $company = Company::create([
+
+             /* if($request->hasFile('logo') && $request->logo->isValid()) {
+                //$logoPath = $request->logo->store('Company');
+                $logoPath = $request->file('logo')->store('public/company');
+                $data['logo'] = $logoPath;
+                } */
+                
+            $data = $request->only(
+                'company_name', 'phone','alternative_phone', 'classification',
+                'about_company', 'main_services','address', 
+                'license','segment_area', 'distrito_id', 'provincia_id');
+
+            $data['user_id'] = $user->id;
+            $logopath = $request->file('logo')->store('Company');
+            $data['logo'] = $logopath;
+
+            $logopat = $request->file('banner')->store('Company');
+            $data['banner'] = $logopat;
+
+            
+            $company = Company::create($data);
+/*             $company = Company::create([
                 'company_name' => $request->company_name,
                 'phone' => $request->phone,
                 'alternative_phone' => $request->alternative_phone,
@@ -83,14 +108,15 @@ class RegisterController extends Controller
                 'about_company' => $request->about_company,
                 'main_services' => $request->main_services,
                 'address' => $request->address,
-                'province' => $request->province,
-                'district' => $request->district,
                 'license' => $request->license,
                 'segment_area' => $request->segment_area,
-                'user_id' => $user->id
-            ]);
+                'user_id' => $user->id,
+                'logo' => $request->logo,
+                'provincia_id' => $request->provincia_id,
+                'distrito_id' => $request->distrito_id
+            ]); */
             $user->assignRole($role->name);
-            return redirect(route('login'))->with('success', 'Seja bem vindo');
+            return  redirect(route('login'))->with('success', 'Seja bem vindo');
         } elseif ($request->role == 'user') {
             $role = Role::findByName($request->role);
             $user = User::create([
@@ -105,9 +131,10 @@ class RegisterController extends Controller
 
     protected function register(Request $request)
     {
+        $provincia = Provincia::all();
         if ($request->has('query')) {
             if ($request->query('query') == "company") {
-                return view('auth.company_registration');
+                return view('auth.company_registration',['provincias_list' => $provincia,]);
             } elseif ($request->query('query') == "user") {
                 return view('auth.register');
             } elseif ($request->query('query') == "chooseAccount") {

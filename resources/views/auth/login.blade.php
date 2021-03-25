@@ -6,12 +6,13 @@
 <div class="uk-width-1-1 uk-text-center uk-margin-large-top" uk-grid>
     <div class="uk-width-1-2">
         <div class="uk-card uk-card-body uk-align-center"><img
-                src="https://kyoto-itsuki.com/design/wp-content/uploads/sites/4/2020/04/itsuki_logo_w.png" alt=""
-                srcset="" width="120"></div>
+        src="https://kyoto-itsuki.com/design/wp-content/uploads/sites/4/2020/04/itsuki_logo_w.png" alt=""
+        srcset="" width="120">
+    </div>
     </div>
 
-    <div class="uk-width-1-2@s">
-        <div class="uk-card uk-card-body">
+    <div class="uk-width-1-2@s container_login">
+        <div class="uk-card uk-card-body container_login">
             <form method="POST" action="{{ route('login') }}" class="uk-form-stacked">
                 @csrf
                 <div class="uk-margin">

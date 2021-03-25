@@ -22,12 +22,15 @@ class CreateCompaniesTable extends Migration
             $table->string('about_company');
             $table->string('main_services');
             $table->string('address');
-            $table->string('province');
-            $table->string('district');
+            $table->string('province')->nullable();
+            $table->string('district')->nullable();
             $table->string('license');
             $table->string('segment_area');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('logo')->nullable();
+            $table->string('banner')->nullable();
+            $table->foreignId('distrito_id')->constrained()->onDelete('cascade');
+            $table->foreignId('provincia_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

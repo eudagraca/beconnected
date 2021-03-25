@@ -1,8 +1,7 @@
 $(document).ready(function() {
-
     var bar = document.getElementById('js-progressbar');
 
-    UIkit.upload('.js-upload', {
+/*     UIkit.upload('.js-upload', {
         url: '',
         multiple: true,
 
@@ -53,9 +52,10 @@ $(document).ready(function() {
 
             alert('Upload Completed');
         }
-    });
+    }); */
 
     //Stepeer
+    
 
     // GoTo second inputs (Endereço da empresa)
     $('#nextOne').click(function(){
@@ -80,4 +80,6 @@ $(document).ready(function() {
       $("#detalhes-da-empresa").attr("hidden", true);
       $("#endereco-da-empresa").attr("hidden", false);
     })
+
+
 });

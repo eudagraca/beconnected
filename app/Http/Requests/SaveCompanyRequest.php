@@ -32,8 +32,8 @@ class SaveCompanyRequest extends FormRequest
             'about_company' => 'string|required|max:255',
             'main_services' => 'string|required|max:255',
             'address' => 'string|required|max:255',
-            'province' => 'string|required|max:255',
-            'district' => 'string|required|max:255',
+            /* 'province' => 'string|required|max:255',
+            'district' => 'string|required|max:255', */
             'license' => 'string|required|max:255',
             'password' => 'required|between:8,255|confirmed',
             'password_confirmation' => 'required|between:8,255',

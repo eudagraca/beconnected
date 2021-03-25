@@ -1,0 +1,90 @@
+@extends('layouts.app')
+@section('content')
+<div class="uk-section uk-section-small uk-section-muted ">
+    <div class="uk-container">
+        <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+            @foreach ($empresas as $company)
+            <div class="uk-card uk-card-default uk-margin-remove-bottom uk-padding-remove uk-grid-collapse uk-width-1-4@s uk-margin" uk-grid>
+                <div class="uk-card-media-left uk-cover-container uk-margin-remove">
+                    @if ($company->logo) 
+                        <img style="width: 300px; height: 200px" width="300" height="100" class="uk-padding-remove" src="{{ url("storage/{$company->logo}") }}" alt="logo">
+                        <canvas width="300" height="10"></canvas>
+                    @else
+                        <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+                        <canvas width="300" height="100"></canvas>
+                    @endif
+                    <!-- <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+                    <canvas width="300" height="100"></canvas> -->
+                </div>
+                <div class="uk-width-1-1@m uk-margin-remove-top uk-padding-remove">
+                    <div class="uk-card-body uk-padding-small">
+                        <h5 class="uk-margin-remove uk-margin-bottom uk-text-left uk-text-bold">{{ $company->company_name }}</h5>
+                        <a href="{{ route('company.show', $company) }}"
+                            class="uk-button uk-button-text uk-margin-remove uk-align-left uk-margin-top">Conecte-se
+                            <span uk-icon="icon: triangle-right"></span></a>
+                        <br>
+                        <p class="uk-margin-remove uk-align-right"><label
+                                class="uk-label uk-label-success uk-text-small">{{ $company->segment_area }}
+                            </label>
+                        </p>
+                        <br>
+                        <p class="uk-margin-remove uk-align-right"><label
+                                class="uk-label uk-label-danger uk-text-small">{{ $company->province .' | '. $company->district }}
+                            </label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+<!-- <div class="uk-container">
+    <!-- @if(Session::has('Ramo')) ->
+        <div class="uk-card uk-alert-success uk-card-body" data-src="../storage/empresas/unnamed.png" uk-img>
+            <p>Lista de empresas de <!-- {{Session::get('Ramo')}} -> neste endereço</p>
+        <div>
+        <!-- @else ->
+        <div class="uk-card uk-card-default uk-card-body" >
+            <!--<p>Lista de empresas de {{Session::get('Ramo')}} neste endereço </p> ->
+        <div>
+    <!-- @endif ->
+        <div class="uk-child-width-1-3@m " uk-grid>
+            @foreach ($empresas as $empresa)
+            <div>
+                <div class="uk-inline  uk-padding-remove">
+                    @if ($empresa->logo) 
+                        <img width="500" height="100" src="{{ url("storage/{$empresa->logo}") }}" alt="logo">
+                    @else
+                        <img width="500" height="100" src="../storage/empresas/k0PxvXRgAia05jy9kgk85QaWyfxUH6IKZiiauvsu.jpg" alt="logo">
+                    @endif
+                    <div class="uk-overlay uk-overlay-default">
+                        <p>
+                            <div class="uk-card-header uk-padding-remove">
+                                    <div class="uk-grid-small uk-flex-middle uk-overlay uk-padding-remove uk-overlay-default  uk-dark" uk-grid>
+                                        <div class="uk-width-auto ">
+                                        <!-- <h4 class=" uk-margin-remove-bottom uk-text-center uk-padding-remove uk-light uk-accordion-title uk-position-top">{{ $empresa->name}}</h4> -->
+                                        <!--  @if ($empresa->logo) 
+                                                <img class="uk-border-circle" width="40" height="40" src="{{ url("storage/{$empresa->logo}") }}" alt="logo">
+                                            @else
+                                                <img class="uk-border-circle" width="40" height="40" src="../storage/empresas/k0PxvXRgAia05jy9kgk85QaWyfxUH6IKZiiauvsu.jpg" alt="logo">
+                                            @endif ->
+                                        </div>
+                                        <div class="uk-overlay uk-padding-remove uk-position-bottom ">
+                                            <!-- <h4 class=" uk-margin-remove-bottom uk-padding-remove uk-light uk-accordion-title uk-position-top">{{ $empresa->name}}</h4> ->
+                                            <h6>{{ $empresa->address}}</h6>
+                                            <h6 class=" uk-margin-remove-top"><a href="{{ route('company.show', $empresa->id) }}" class="uk-button uk-text-center">{{ $empresa->company_name}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+</div>
+</div>
+ -->
+ @endsection

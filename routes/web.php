@@ -21,7 +21,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@create')->name('register');
 Route::get('/profile', 'Auth\UserController@profile')->name('user.profile');
+Route::resource('/admninPainel', 'AdminController'); 
 
 Route::resource('company', 'CompanyController');
-
-

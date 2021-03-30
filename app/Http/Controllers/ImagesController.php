@@ -6,6 +6,7 @@ use App\Company;
 use App\Image_Details;
 use App\Images;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ImagesController extends Controller
@@ -131,6 +132,40 @@ class ImagesController extends Controller
         $imagePath = $request->photos->store('photos');
         $data['image'] = $imagePath;
         } */
+    }
+
+    public function updatephoto(Request $request, $id)
+    {
+        $images = DB::table('Images')
+            ->join('image__details', function ($join) use ($id) {
+                $join->on('Images.id', '=', 'image__details.Image_id')
+                    ->where('image__details.id', '=', $id);
+            })
+            ->get();
+
+        if(!$images)
+        return redirect()->back();
+
+        if(!$companyid = Images::where('id', $id)->find($id)){
+             return redirect()->back();
+        }
+        $photoid=$companyid->id;
+
+        $data = $request->only(
+            'name', 'price', 'descrition');
+        $companyid->update($data);
+        $src=$request->src;
+        if($company = Image_Details::where('src', $src)->find($id));
+            if($company->src && Storage::exists($company->src)) {
+                Storage::delete($company->src);
+                
+            } 
+            $logopath = $request->file('photos')->store('photos');
+            $data['src'] = $logopath;
+
+
+        $company->update($data);
+        return redirect()->back();
     }
 
     /**

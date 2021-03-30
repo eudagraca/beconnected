@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Provincia;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,8 @@ class UserController extends Controller
         if (is_null(Auth::user()->company)) {
             return view('auth.profile.user');
         } else {
+
+            $provincia = Provincia::all();
             $id =  Auth::user()->id;
             $id_company=Auth::user()->company->id;
             $images = DB::table('Images')
@@ -26,7 +29,8 @@ class UserController extends Controller
             ->get();
             $users = User::where('id', '!=', Auth::id())->get();
 
-            return view('auth.profile.company', ['image'=> $images, 'users'=>$users] )->with('company', Auth::user()->company, ['image'=> $images]);
+            return view('auth.profile.company', ['image'=> $images, 'provincias_list' => $provincia, 'users'=>$users] )->with('company', Auth::user()->company, ['image'=> $images]);
         }
+        return redirect()->back();
     }
 }

@@ -41,18 +41,21 @@
     <div class="uk-text-center uk-padding" uk-grid>
         <div class="uk-width-1-5@m">
              <div class="uk-card uk-card-body uk-padding-remove uk-float-left">
-            @if ($company->logo) 
-                <img class="uk-border-circle" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
-            @else
-                
-            <img class="uk-border-circle" src="https://getuikit.com/docs/image/avatar.jpg"
-                    style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo" />
-            @endif
+                 
+                    @if ($company->logo) 
+                    <div class="uk-card-defaultt uk-padding-remove-botton" style="margin-left: 30px; align-items: center;">
+                        <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
+                    </div>
+                        @else
+                        
+                    <img class="uk-border-circle uk-image-possition" src="https://getuikit.com/docs/image/avatar.jpg"
+                            style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo" />
+                    @endif
 
                 {{-- Location  --}}
                 <div class="uk-margin-small-top">
-                    <p class="uk-heading-line uk-text-left uk-text-small"><span><h6 class="uk-text-bolder uk-text-left uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
-                    </h6></span></p>
+                    <p class="uk-heading-line uk-text-left uk-text-small"><span><h4 class="uk-text-bolder uk-text-left uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
+                    </h4></span></p>
                     <p class="uk-text-primary uk-text-small uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
                         {{ $company->phone}}</p>
                     <p class="uk-text-bolder uk-text-left uk-margin-remove-bottom">{{ $company->user->email?? 'N/A' }} &nbsp</p>
@@ -65,12 +68,12 @@
         </div>
         <div class="uk-width-expand@m">
             <div class=" uk-padding-remove-top">
-                <div uk-grid>
+                <!-- <div uk-grid> -->
 
                 
                 <!-- <h6 class="uk-text-bolder uk-hidden@s uk-text-left uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
                     </h6> -->
-                    
+<!--                     
                     <p
                         class="uk-text-primary uk-text-small uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
                         {{ $company->segment_area}}</p>
@@ -83,7 +86,7 @@
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>
                     </div>
-                </div>
+                </div> -->
                 <div class="uk-card uk-padding-remove uk-card-body">
                         <a class="uk-icon-button uk-button-default uk-label-success" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
                         <a href="" class="uk-icon-button uk-button-primary uk-margin-small-right" uk-icon="facebook"></a>
@@ -107,7 +110,7 @@
                                                         <td>
                                                             <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="user"></a></td>
                                                         <td>
-                                                            <a class="uk-link-reset uk-light" href="">
+                                                            <a class="uk-link-reset uk-light" href="{{ route('message.conversation', $company->user_id )}}">
                                                                 {{ $company->company_name}} <span class="uk-light">
                                                                  <br> Ola! Envie tua messagem?</span>
                                                             </a>
@@ -117,7 +120,7 @@
                                                             @foreach($users as $user)
                                                             <tr class="uk-inline">
                                                                 <td><!-- <img class="uk-preserve-width uk-border-circle" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" width="40" alt=""> -->
-                                                                <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="user"></a>
+                                                                <!-- <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="user"></a> -->
                                                                 </td>
                                                                 <td class="uk-table-link uk-light  uk-list-divider">
                                                                     <a class="uk-link-reset uk-light" href="{{ route('message.conversation', $user->id )}}">
@@ -125,7 +128,7 @@
                                                                         <!-- <div class="chat-image">
                                                                             <i class="fa fa fa-circle user-status-icon user-icon-{{ $user->id }}" title="away"></i>
                                                                         </div> -->
-                                                                        {{ $user->name}}
+                                                                       <!--  {{ $user->name}} -->
                                                                     </a>
                                                                     <!-- <a class="uk-link-reset" href="">{{ $user->name}}</a> -->
                                                                 </td>
@@ -180,7 +183,7 @@
                                     <div class="radius1">
                                         <div uk-lightbox>
                                             <a class="uk-button"  href="{{ url("storage/{$images->src}") }}" data-caption="{{ $images->name}}" data-caption="{{ $images->descrition}}"> 
-                                                <img style="width: 280px; height: 200px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
+                                                <img style="width: 280px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
                                             </a>
                                         </div>
                                     </div>
@@ -359,7 +362,7 @@
         <button id="close" class="uk-margin-small-right uk-align-right uk-margin-small-top uk-text-danger"
             uk-icon="close"></button>
         <form action="" class="uk-form-stacked uk-padding">
-            <p class="uk-text-bold uk-text-secondary">Ola aqui fala o(a) {{ $company->company_name }} em que podemos ajudar-lhe?</p>
+            <p class=" uk-text-secondary">Ola aqui fala o(a) {{ $company->company_name }} em que podemos ajudar-lhe?</p>
 
             <label class="uk-form-label" for="message">Mensagem</label>
             <textarea rows="3" placeholder="Escreva uma mensagem" name="message" class="uk-textarea" id="message"

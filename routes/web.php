@@ -37,10 +37,23 @@ Route::get('distrito/{provincia}/provincia', 'DistritoController@getDistritos');
 // Company resource
 Route::resource('company', 'CompanyController');
 Route::resource('company', 'CompanyController');
+/* Route::post('company/{id}/edit', 'CompanyController@edit')->name('company.edit')->middleware('auth');
+Route::any('company/{id}', 'CompanyController@edit')->name('company.edit')->middleware('auth');
+Route::get('search', 'CompanyController@index'); */
+//Image resource
 
-//Search Company
-Route::get('search', 'CompanyController@index');
+Route::any('updatelogo/{id}', 'CompanyController@updatelogo')
+    ->name('updatelogo')
+    ->middleware('auth');
 
+Route::any('updatedados/{id}', 'CompanyController@updatedados')
+    ->name('updatedados')
+    ->middleware('auth');
+
+    Route::any('updatesobre/{id}', 'CompanyController@updatesobre')
+    ->name('updatesobre')
+    ->middleware('auth');
+//Store     
 Route::get('search', 'CompanyController@search')
     ->name('search');
 
@@ -59,8 +72,12 @@ Route::any('ImageForm/{id}', 'ImagesController@uploadForm')
     ->name('form.ImageForm')
     ->middleware('auth');
 
-Route::post('uploadImage/{id}', 'ImagesController@UploadSubmit')
+Route::any('uploadImage/{id}', 'ImagesController@UploadSubmit')
     ->name('uploadImage')
+    ->middleware('auth');
+
+Route::post('updatephoto/{id}', 'ImagesController@updatephoto')
+    ->name('updatephoto')
     ->middleware('auth');
 
 //Route to send and receive message

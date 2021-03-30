@@ -41,9 +41,9 @@
                     <div class="uk-container">
                         <div class="uk-navbar" data-uk-navbar>
                             <div class="uk-navbar-left">
-                                <a class="uk-navbar-item uk-padding-top-remove uk-text-bolder uk-logo logocolor" href="/"  style="color: black; font-family:'Comfortaa', cursive;">{{ config('app.name', 'Laravel') }}</a>
+                                <a class="uk-navbar-item uk-padding-top-remove uk-text-bolder uk-logo logocolor" href="/"  style="color: #32d296; font-size:18px; font-family:'Comfortaa', cursive;">{{ config('app.name', 'Laravel') }}</a>
 
-                                <ul class="uk-navbar-nav">
+                                <!--<ul class="uk-navbar-nav">
                                     <li>
                                         <a href="#"></a>
                                         <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
@@ -51,7 +51,7 @@
                                                 
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                             <div class="uk-navbar-right">
                                 <ul class="uk-navbar-nav">
@@ -59,18 +59,18 @@
                                     @guest
                                     @if (Route::has('login'))
                                     <li>
-                                        <a style="color: black;" href="{{ route('login') }}">{{ __('Log In') }}</a>
+                                        <a style="color: #32d296;" href="{{ route('login') }}">{{ __('Log In') }}</a>
                                     </li>
                                     @endif
                                     @if (Route::has('register'))
                                     <li>
-                                        <a style="color: black;"
+                                        <a style="color: #32d296;"
                                             href="{{ route('register', ['query'=> 'chooseAccount']) }}">{{ __('Registar') }}</a>
                                     </li>
                                     @endif
                                     @else
                                     <li>
-                                        <a style="color: black;" href="#">
+                                        <a style="color: #32d296;" href="#">
                                             {{ Auth::user()->name }}
                                         </a>
                                         <div class="uk-navbar-dropdown uk-margin-remove-top uk-margin-remove-right">

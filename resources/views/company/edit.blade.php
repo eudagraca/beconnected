@@ -4,13 +4,12 @@
 {{--  @dd($errors->all())  --}}
 <div class="uk-section uk-section-small uk-padding-large uk-section-muted uk-flex uk-flex-center">
     <div class="uk-card uk-card-default uk-width-1-1@s  uk-margin-large">
-        <h2 class="uk-card-title uk-card-header uk-text-bolder uk-margin-remove-top uk-text-bolder">Registar empresa
+        <h2 class="uk-card-title uk-card-header uk-text-bolder uk-margin-remove-top uk-text-bolder">Editar empresa
         </h2>
         <div class="uk-card-body">
-            <form enctype="multipart/form-data" method="post" action="{{ route('register', ['query' => 'company']) }}" class="uk-form-stacked">
+            <form enctype="multipart/form-data" method="post" action="{{ route('company.update', $empresa->id ) }}" class="uk-form-stacked">
+            @method('PUT')
             @csrf
-            @csrf
-                <input value="company" type="text" name="role" hidden>
                 <div class="uk-margin-remove-top" id="dados-da-empresa" uk-grid>
                     <div class="uk-margin-bottom uk-margin-remove-top uk-width-1-1@s">
                         <h6 class="uk-text-normal uk-heading uk-text-bolder uk-heading-divider">Dados
@@ -22,7 +21,7 @@
                         </label>
                         <div class="uk-form-control">
                             <input class="uk-input @error('company_name') uk-form-danger @enderror" id="company_name"
-                                name="company_name" type="text" value="{{ old('company_name') }}" required
+                                name="company_name" type="text" value="{{ $company->company_name ?? old('company_name') }}" required
                                 autocomplete="company_name" autofocus>
                             @error('company_name')
                             <span class="uk-text-danger">{{ $message }}</span>
@@ -35,7 +34,7 @@
                         </label>
                         <div class="uk-form-control">
                             <input class="uk-input @error('email') uk-form-danger @enderror" id="email" name="email"
-                                type="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                type="email" value="{{ $company->email ?? old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
                             <span class="uk-text-danger">{{ $message }}</span>
                             @enderror
@@ -47,7 +46,7 @@
                         </label>
                         <div class="uk-form-control">
                             <input class="uk-input @error('phone') uk-form-danger @enderror" id="phone" name="phone"
-                                type="tel" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                type="tel" value="{{ $company->phone ?? old('phone') }}" required autocomplete="phone" autofocus>
                             @error('phone')
                             <span class="uk-text-danger">{{ $message }}</span>
                             @enderror
@@ -60,7 +59,7 @@
                         <div class="uk-form-control">
                             <input class="uk-input @error('alternative_phone') uk-form-danger @enderror"
                                 id="alternative_phone" name="alternative_phone" type="tel"
-                                value="{{ old('alternative_phone') }}" autocomplete="alternative_phone" autofocus>
+                                value="{{ $company->alternative_phone ?? old('alternative_phone') }}" autocomplete="alternative_phone" autofocus>
                             @error('alternative_phone')
                             <span class="uk-text-danger">{{ $message }}</span>
                             @enderror
@@ -71,7 +70,7 @@
                             {{ __('Area de actuação') }} <span class="uk-text-danger">*</span>
                         </label>
                         <div class="uk-form-control">
-                            <select class="uk-select" name="segment_area" id="segment_area" required autofocus>
+                            <select class="uk-select" name="segment_area" value="{{ $company->segment_area ?? old('segment_area') }}" id="segment_area" required autofocus>
                                 <option disabled selected>Seleccione a área</option>
                                 <option name="" value="">Voce esta em busca de?</option>
                                 <option name="segment_area" value="Clinica">Clinica</option>
@@ -118,7 +117,7 @@
                             {{ __('Classificação') }} <span class="uk-text-danger">*</span>
                         </label>
                         <div class="uk-form-control">
-                            <select class="uk-select" name="classification" id="classification" required autofocus>
+                            <select class="uk-select" name="classification" value="{{ $company->classification ?? old('classification') }}" id="classification" required autofocus>
                                 <option disabled selected>Seleccione a classificação</option>
                                 <option value="Pequena Média">Pequena Média</option>
                                 <option value="Grande">Grande</option>
@@ -155,7 +154,7 @@
                         </label>
                         <div class="uk-form-control">
                             <input class="uk-input @error('address') uk-form-danger @enderror" id="address"
-                                name="address" type="text" value="{{ old('address') }}" required autocomplete="address"
+                                name="address" type="text" value="{{ $company->address ?? old('address') }}" required autocomplete="address"
                                 placeholder="Rua, Bairro, Cidade" autofocus>
                             @error('address')
                             <span class="uk-text-danger">{{ $message }}</span>
@@ -178,7 +177,7 @@
                             @enderror -->
 
 
-                            <select name="provincia_id" class="uk-select formselect required" id="provincia_id">
+                            <select name="provincia_id" value="{{ $company->provincia_id ?? old('provincia_id') }}" class="uk-select formselect required" id="provincia_id">
                                 <option disabled selected>Selecione a Provincia</option>
                                 @foreach($provincias_list as $provincia)
                                 <option value="{{ $provincia->id }}">
@@ -205,7 +204,7 @@
                             @enderror -->
 
 
-                            <select class="uk-select" name="distrito_id" value="{{ old('distrito_id') }}" id="distito">
+                            <select class="uk-select" name="distrito_id" value="{{ $company->distrito_id ?? old('distrito_id') }}" id="distito">
                                 <option>Distrito de :</option>
                             </select>
                             @error('distrito_id')
@@ -222,7 +221,7 @@
                             <textarea class="uk-textarea @error('about_company') uk-form-danger @enderror"
                                 id="about_company" name="about_company" required rows="2" autocomplete="about_company"
                                 placeholder="Principais serviços fornecidos pela empresa"
-                                autofocus>{{ old('about_company') }}</textarea>
+                                autofocus>{{$company->about_company ?? old('about_company') }}</textarea>
                             @error('about_company')
                             <span class="uk-text-danger">{{ $message }}</span>
                             @enderror
@@ -235,7 +234,7 @@
                         <div class="uk-form-control">
                             <textarea class="uk-textarea @error('main_services') uk-form-danger @enderror"
                                 id="main_services" name="main_services" required rows="2" autocomplete="main_services"
-                                placeholder="Descreva a sua empresa" autofocus>{{ old('main_services') }}</textarea>
+                                placeholder="Descreva a sua empresa" autofocus>{{$company->main_services ?? old('main_services') }}</textarea>
                             @error('main_services')
                             <span class="uk-text-danger">{{ $message }}</span>
                             @enderror
@@ -273,7 +272,7 @@
                             <span class="uk-text-middle">Anexe um logotipo soltando-o aqui </span> <span
                                 class="uk-text-danger">*</span>
                             <div uk-form-custom>
-                                <input type="file" required name="logo" accept="image/*">
+                                <input type="file" value="{{ $company->logo ?? old('logo') }}" required name="logo" accept="image/*">
                                 <span class="uk-link">Logotipo</span>
                             </div>
                         </div>
@@ -284,12 +283,10 @@
                                 <span class="uk-text-middle">Agora anexe o Banner soltando-o aqui</span> <span
                                 class="uk-text-danger">*</span>
                             <div uk-form-custom>
-                                <input type="file" name="banner" required accept="image/*">
+                                <input type="file" value="{{ $company->banner ?? old('banner') }}" name="banner" required accept="image/*">
                                 <span class="uk-link">Banner da Empresa</span>
                             </div>
-                        </div>
-
-                        
+                        </div>     
                     </div>
 
                     <progress id="js-progressbar" class="uk-progress  uk-margin-remove-top uk-margin-bottom" value="0"
@@ -301,37 +298,10 @@
                             {{ __('Licença') }} <span class="uk-text-danger">*</span>
                         </label>
                         <div class="uk-form-control">
-                            <input id="license" type="license"
+                            <input id="license" type="license" value="{{ $company->license ?? old('license') }}"
                                 class="uk-input @error('license') uk-form-danger @enderror" name="license" required
                                 autocomplete="license">
                             @error('license')
-                            <span class="uk-text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="uk-width-1-3@s uk-margin-remove-top uk-margin-bottom">
-                        <label for="password" class="uk-form-label">
-                            {{ __('Senha para aceder a aplicação') }} <span class="uk-text-danger">*</span>
-                        </label>
-                        <div class="uk-form-control">
-                            <input id="password" type="password"
-                                class="uk-input @error('password') uk-form-danger @enderror" name="password" required
-                                autocomplete="new-password">
-                            @error('password')
-                            <span class="uk-text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="uk-width-1-3@s uk-margin-remove-top">
-                        <label for="password_confirmation" class="uk-form-label">
-                            {{ __('Confirmar a Senha') }} <span class="uk-text-danger">*</span>
-                        </label>
-                        <div class="uk-form-control">
-                            <input id="password_confirmation" type="password"
-                                class="uk-input @error('password') uk-form-danger @enderror"
-                                name="password_confirmation" required autocomplete="new-password">
-                            @error('password_confirmation')
                             <span class="uk-text-danger">{{ $message }}</span>
                             @enderror
                         </div>

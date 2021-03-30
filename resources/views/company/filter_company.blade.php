@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="uk-section uk-section-small uk-section-muted ">
-    <div class="uk-container">
-        <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div class="uk-container"><div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
             @foreach ($empresas as $company)
-            <div class="uk-card uk-card-default uk-margin-remove-bottom uk-padding-remove uk-grid-collapse uk-width-1-4@s uk-margin" uk-grid>
-                <div class="uk-card-media-left uk-cover-container uk-margin-remove">
+            <div class="uk-card uk-grid-small  uk-grid-collapse uk-width-1-4@s uk-margin " uk-grid>
+                <div class="uk-card-media-center  uk-cover-container uk-margin-remove" >
                     @if ($company->logo) 
-                        <img style="width: 300px; height: 200px" width="300" height="100" class="uk-padding-remove" src="{{ url("storage/{$company->logo}") }}" alt="logo">
-                        <canvas width="300" height="10"></canvas>
+                    <div class="uk-card-defaultt uk-padding-left" style="margin-left: 50px;">
+                        <img style="width: 200px; height: 200px" width="300" height="100" class=" uk-image-possition uk-border-circle" src="{{ url("storage/{$company->logo}") }}" alt="logo">
+                    </div>
                     @else
                         <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
                         <canvas width="300" height="100"></canvas>
@@ -22,14 +22,14 @@
                         <a href="{{ route('company.show', $company) }}"
                             class="uk-button uk-button-text uk-margin-remove uk-align-left uk-margin-top">Conecte-se
                             <span uk-icon="icon: triangle-right"></span></a>
-                        <br>
+                            <p class="uk-margin-remove uk-align-right">{{ $company->address }} </p>
                         <p class="uk-margin-remove uk-align-right"><label
-                                class="uk-label uk-label-success uk-text-small">{{ $company->segment_area }}
+                                class="uk-label uk-label-success uk-text-small">
                             </label>
                         </p>
                         <br>
                         <p class="uk-margin-remove uk-align-right"><label
-                                class="uk-label uk-label-danger uk-text-small">{{ $company->province .' | '. $company->district }}
+                                class="uk-label uk-label-primary uk-text-small">{{ $company->segment_area }}
                             </label>
                         </p>
                     </div>

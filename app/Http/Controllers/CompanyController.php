@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
 {
@@ -18,8 +19,8 @@ class CompanyController extends Controller
         $this->request = $request;
         $this->repository = $company;
 
-        $this->middleware(['auth', 'check.is.empresa'])->except([
-             'index', 'show', 'search', 'store', 'index1', 'login', 'create', 'aboutus', 'autocomplete'
+        $this->middleware(['auth'])->except([
+             'index', 'show', 'search', 'store', 'index1', 'login', 'create', 'autocomplete'
           ]);
     }
 
@@ -132,6 +133,44 @@ class CompanyController extends Controller
     {
         //
     }
+
+    public function updatedados(Request $request, $id)
+    {
+
+    if(!$company = $this->repository->find($id));
+    $data=$request->all();
+        
+    $company->update($data);
+    return redirect()->back();
+    }
+
+    public function updatesobre(Request $request, $id)
+    {
+        if(!$company = $this->repository->find($id)){
+            return redirect()->back();
+        }
+        $data=$request->all();   
+    
+        $company->update($data);
+    return redirect()->back();
+    }
+
+
+    public function updatelogo(Request $request, $id)
+    {
+
+        if(!$company = $this->repository->find($id));
+            if($company->logo && Storage::exists($company->logo)) {
+                Storage::delete($company->logo);
+
+        $logopath = $request->file('logo')->store('logo');
+        $data['logo'] = $logopath;
+
+            }
+    $company->update($data);
+    return redirect()->back();
+    }
+     
 
     /**
      * Remove the specified resource from storage.

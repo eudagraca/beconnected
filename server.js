@@ -6,7 +6,7 @@ var redis = new Redis();
 var users = [];
 
 http.listen(8005, function () {
-    console.log('Listening to port 8001');
+    console.log('Listening to port 8005');
 });
 
 redis.subscribe('private-channel', function() {

@@ -50,7 +50,7 @@
                                                 @if($user->id == $friendInfo->id) active @endif">
                                                 <a href="{{ route('message.conversation', $user->id) }}">
                                                     <div class="chat-image">
-                                                        <img class="uk-border-circle" width="40" height="40" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
+                                                        <img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
                                                         <i class="fa fa-circle user-status-icon user-icon-{{ $user->id }}" title="away"></i>
                                                     </div>
 
@@ -73,35 +73,40 @@
             </div>
         </div>
 
+
     <div class="uk-container" >
-        <ul class="uk-padding uk-list uk-inline uk-button-primary  uk-width-expand@m uk-inline uk-light " data-src="../storage/empresas/unnamed.png" uk-img>
-            <li class="uk-position-top-left uk-padding-remove-bottom"><a class="uk-link-reset uk-text-lowercase"  href="{{ route('message.home') }}"><div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto uk-section-danger">
-                    <a href="{{ route('message.home') }}" class="uk-icon-link uk-icon-button uk-button-default" uk-icon="arrow-left"></a>
-                        <img class="uk-border-circle" width="40" height="40" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
-                    </div>
-                    <div class="uk-width-expand uk-padding-remove-bottom">
-                        <p class="uk-margin-remove-bottom">
-                            {{ $friendInfo->name }}
-                        </p>
-                        <!-- <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p> -->
-                    </div>
+    <ul class="uk-padding uk-list uk-inline uk-button-primary  uk-width-expand@m uk-inline uk-light " data-src="../storage/company/unnamed.png" uk-img>
+        <li class="uk-position-top-left uk-padding-remove-bottom"><a class="uk-link-reset uk-text-lowercase"  href="{{ route('message.home') }}"><div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto uk-section-danger">
+                <a href="{{ route('message.home') }}" class="uk-icon-link uk-icon-button uk-button-default" uk-icon="arrow-left"></a>
+                    <img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
                 </div>
-                </a></li>
-            <!-- <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset" href="" >Mensagens</a></li> -->
-            <li class="uk-position-top-right"><a class="uk-link-reset" href="" uk-icon="more-vertical"></a></li>
-        </ul>
+                <div class="uk-width-expand uk-padding-remove-bottom">
+                    <p class="uk-margin-remove-bottom">{{ $friendInfo->name }}</p>
+                    <!-- <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p> -->
+                </div>
+            </div>
+            </a></li>
+        <!-- <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset" href="" >Mensagens</a></li> -->
+        <li class="uk-position-top-right"><a class="uk-link-reset" href="" uk-icon="more-vertical"></a></li>
+    </ul>
     <hr>
+
 
     <div class="uk-card uk-card-default uk-width-1-1@m">
     <div class="row chat-row">
         <div class="chat-section">
-                <div class="uk-height-medium" data-src="../storage/empresas/unnamed.png" uk-img>
+                <div class="uk-height-medium" data-src="../storage/company/unnamed.png" uk-img>
                     <div class="js-wrapper">
                         <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
                             <div class="uk-grid-small" uk-grid >
-                                <div class="chat-body uk-comment-list uk-clearfix" id="chatBody" data-src="../storage/empresas/unnamed.png" uk-img>
+                                <div class="chat-body uk-comment-list uk-clearfix" id="chatBody" data-src="../storage/company/unnamed.png" uk-img>
                                     <div class="uk-clearfix message-listing uk-padding-bottom uk-width-expand@m" id="messageWrapper">
+
+                                     
+                                            <?php foreach($message as $row){?>
+
+                                            <?php }?>
 
                                     </div>
                                 </div>
@@ -110,13 +115,13 @@
                     </div>
                 </div>
 
+
+
             <div class="chat-box uk-container uk-card-default uk-position-bottom uk-position-fixed uk-width-1-1@m">
                 <div class=" chat-input uk-container bg-white" id="chatInput" contenteditable="">
                 </div>
-                    <!-- <span class="input-group-btn" style="border-radius: 1000px">
-                        <input type="submit" value="&rang;" class="btn btn-info" style="border-radius: 1000px;">
-                        <input type="hidden" name="e" value="e"/> 
-                    </span> -->
+
+
                     <div class="chat-input-toolbar uk-container">
                     <button title="Add File" class="btn btn-light btn-sm btn-file-upload">
                         <i class="fa fa-paperclip"></i>
@@ -208,7 +213,7 @@
 
             function appendMessageToSender(message) {
                 let name = '{{ $myInfo->name }}';
-                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
+                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
 
                 let userInfo = '<div class="col-md-12 user-info">\n' +
                     '<div class="chat-image">\n' + image +
@@ -238,7 +243,7 @@
 
             function appendMessageToReceiver(message) {
                 let name = '{{ $friendInfo->name }}';
-                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
+                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
 
                 let userInfo = '<div class="col-md-12 user-info ">\n' +
                     '<div class="chat-image">\n' + image +

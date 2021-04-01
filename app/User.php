@@ -45,4 +45,21 @@ class User extends Authenticatable
     {
         return $this->hasOne(Company::class);
     }
+
+
+    public function latestMessageTo()
+    {
+        return $this->hasOne('App\Models\Message', 'recipient_to')->orderBy('created_at', 'desc')->latest();
+    }
+
+    public function latestMessageFrom()
+    {
+        return $this->hasOne('App\Models\Message', 'user_id')->orderBy('created_at', 'desc')->latest();
+    }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message', 'user_id', 'user_id');
+    }
+
 }

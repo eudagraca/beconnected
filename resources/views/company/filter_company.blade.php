@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="uk-section uk-section-small uk-section-muted ">
-    <div class="uk-container"><div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    <div class="uk-container"><div class="uk-grid-small  uk-text-center" uk-grid>
             @foreach ($empresas as $company)
-            <div class="uk-card uk-grid-small  uk-grid-collapse uk-width-1-4@s uk-margin " uk-grid>
+            <a class="uk-link-reset" href="{{ route('company.show', $company) }}">
+            <div class="uk-card uk-grid-small uk-grid-collapse uk-width-1-4@s uk-margin " uk-grid>
                 <div class="uk-card-media-center  uk-cover-container uk-margin-remove" >
                     @if ($company->logo) 
                     <div class="uk-card-defaultt uk-padding-left" style="margin-left: 50px;">
@@ -35,6 +36,7 @@
                     </div>
                 </div>
             </div>
+            </a>
             @endforeach
         </div>
     </div>

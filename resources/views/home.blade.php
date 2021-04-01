@@ -3,7 +3,7 @@
 <div class="uk-position-relative uk-cover-container uk-container uk-visible-toggle" tabindex="-1" uk-slideshow="min-height: 300; max-height: 300; animation: push">
     <ul class="uk-slideshow-items">
         <li>
-            <img src="../storage/Company/martechs.jpg" alt="" uk-cover>
+            <img src="../storage/Company/banner-single-post-kw-prestacao-de-servicos.jpg" alt="" uk-cover>
             <div class=" uk-position-top-left uk-text-center">
  
                 <div class="uk-inline uk-float-right ">
@@ -108,11 +108,50 @@
 </div>
 
 
+<div>
+    <div class="uk-card-body">
+
+        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title uk-text-center uk-text-bold">Missão</h3>
+                    <p>
+                        <span class="uk-text-bold" style="color: indianred; font-size:20px;">"</span> 
+                            Promover o intercâmbio entre as PME, clientes e potências investidores e servir de ponte para impulsionar o crescimento, visibilidade e maior oportunidade para as PME’s no ecossistema empresarial.
+                        <span class="uk-text-bold" style="color: indianred; font-size:20px;">"</span> 
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title uk-text-center uk-text-bold">Visão</h3>
+                    <p> 
+                    <span class="uk-text-bold" style="color: indianred; font-size:20px;">"</span> 
+                        Ser referencia nacional e internacional no intercambio empresarial e exposição de PME's, agregando valores a sociedade e as empresas.
+                    <span class="uk-text-bold" style="color: indianred; font-size:20px;">"</span>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title uk-text-center uk-text-bold">Valores</h3>
+                    <p>Integridade, foco no cliente,  qualidade do nosso produto e sustentabilidade do meio ambiental.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="uk-card-footer">
+                <a href="#" class="uk-button uk-button-text">Read more</a>
+            </div>
+</div>
 
 
 
 <div class="uk-section uk-section-small uk-section-muted ">
     <div class="uk-container">
+
+
+
 
 
 
@@ -124,8 +163,8 @@
         <ul class="uk-slider-items uk-child-width-1-3@s uk-grid">
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/tiXvZGZp35LjN8d90p3BfllRrEHxKB6CaGPN1bjT.png">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/tiXvZGZp35LjN8d90p3BfllRrEHxKB6CaGPN1bjT.png">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Roupas Masculina & Femenina</h3>
@@ -136,8 +175,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/M_construcao.jpg">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/M_construcao.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Material de Construção </h3>
@@ -148,8 +187,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/img_17230007.jpg">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/img_17230007.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Salão de festas & eventos</h3>
@@ -160,8 +199,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/vidros-duplos-acusticos.jpg">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/vidros-duplos-acusticos.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Aluminio & Vidro</h3>
@@ -172,8 +211,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/img.jpg">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/img.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Clinicas & Farmacias </h3>
@@ -184,8 +223,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/CarrosEnfileirados-1.jpg">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/CarrosEnfileirados-1.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Parques de Automoveis</h3>
@@ -196,8 +235,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/sur-mesure-at-mandarin.jpg">
+                    <div >
+                    <img class="" style="width: 380px; height: 200px" src="../storage/Company/sur-mesure-at-mandarin.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Hoteis & Restaurantes</h3>
@@ -208,8 +247,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/maxresdefault.jpg">
+                    <div >
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/maxresdefault.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Bolos, Doces & Salgados</h3>
@@ -220,8 +259,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/Blog-1-2.jpg">
+                    <div >
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/Blog-1-2.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Peças de Carros</h3>
@@ -233,8 +272,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/wYCPtTL0jTiJNM59pcMqdGJqTYan9Eb3MtZPAXPR.jpg">
+                    <div >
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/wYCPtTL0jTiJNM59pcMqdGJqTYan9Eb3MtZPAXPR.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Buff & Cuntring</h3>
@@ -246,8 +285,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;"">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/160-3-1.jpg">
+                    <div ">
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/160-3-1.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Salao de beleza</h3>
@@ -258,8 +297,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/quanto-custa-para-fazer-uma-campanha-de-marketing-digital.jpg">
+                    <div >
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/quanto-custa-para-fazer-uma-campanha-de-marketing-digital.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Contabilidade & Auditoria</h3>
@@ -270,8 +309,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/homem-novo-que-trabalha-editando-estilos-da-foto-na-tela-de-computador-do-pc-em-casa-negocio-da-fotografia_38716-112.jpg">
+                    <div >
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/homem-novo-que-trabalha-editando-estilos-da-foto-na-tela-de-computador-do-pc-em-casa-negocio-da-fotografia_38716-112.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Design </h3>
@@ -282,8 +321,8 @@
 
             <li>
                 <div class=" uk-card-default">
-                    <div class="uk-card-defaultt" style="margin-left: 70px; align-items: center;">
-                    <img  class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px" src="../storage/Company/abstract-app-social-web-service-object_1418-520.jpg">
+                    <div >
+                    <img  class="" style="width: 380px; height: 200px" src="../storage/Company/abstract-app-social-web-service-object_1418-520.jpg">
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title">Servicos Diversos</h3>

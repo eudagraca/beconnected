@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Message extends Model
 {
     public function user_messages() {
@@ -21,4 +20,8 @@ class Message extends Model
         $this->status = '0';
         $this->save();
     }
+    /*public function userTo()
+    {
+        return $this->belongsTo('App\Models\User', 'recipient_to', 'id');
+    } */
 }

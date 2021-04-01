@@ -43,8 +43,12 @@
              <div class="uk-card uk-card-body uk-padding-remove uk-float-left">
                  
                     @if ($company->logo) 
-                    <div class="uk-card-defaultt uk-padding-remove-botton" style="margin-left: 30px; align-items: center;">
-                        <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
+                    <div uk-lightbox>
+                        <a class="uk-button"  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
+                            <div class="uk-card-defaultt uk-padding-remove-botton" style="margin-left: 30px; align-items: center;">
+                                <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
+                            </div>
+                        </a>
                     </div>
                         @else
                         
@@ -89,8 +93,8 @@
                 </div> -->
                 <div class="uk-card uk-padding-remove uk-card-body">
                         <a class="uk-icon-button uk-button-default uk-label-success" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
-                        <a href="" class="uk-icon-button uk-button-primary uk-margin-small-right" uk-icon="facebook"></a>
-                        <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="whatsapp"></a>
+                        <a href="https://www.facebook.com/" class="uk-icon-button uk-button-primary uk-margin-small-right" uk-icon="facebook"></a>
+                        <a href="https://api.whatsapp.com/send?phone=258{{ $company->phone}}" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="whatsapp"></a>
                         <a href="" class="uk-icon-button uk-button-default " uk-icon="world"></a>    
                     </div>
                     <div id="offcanvas-flip" class="uk-card-dafault" uk-offcanvas="flip: true; overlay: true">
@@ -178,24 +182,31 @@
                     
                         <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
                             @foreach ($image as $images)
-                            <div class="uk-card uk-card-default uk-padding-remove uk-grid-collapse uk-width-1-3@s uk-margin" uk-grid>
+                            <div class="uk-card uk-card-default uk-grid-match uk-padding-remove uk-grid-collapse uk-width-1-3@s uk-margin" uk-grid>
                                 <div class="uk-margin-remove-left">                    
                                     <div class="radius1">
                                         <div uk-lightbox>
-                                            <a class="uk-button"  href="{{ url("storage/{$images->src}") }}" data-caption="{{ $images->name}}" data-caption="{{ $images->descrition}}"> 
-                                                <img style="width: 280px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
-                                            </a>
+
+                                        <div class="uk-text-center">
+                                            <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                                                <a class="uk-button"  href="{{ url("storage/{$images->src}") }}" data-caption="{{ $images->name}}" data-caption="{{ $images->descrition}}"> 
+                                                    <img style="width: 280px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
+                                                </a>
+                                                <div class="uk-position-center">
+                                                    <span class="uk-transition-fade" uk-icon="icon: plus; ratio: 2"></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="uk-width-1-1@m">
                                     <div class="uk-card-body uk-padding-small">
-                                        <h5 class="uk-margin-remove uk-margin-bottom uk-text-left">{{ $images->name }}</h5>
+                                    <p class="uk-margin-small-top">{{ $images->name }}</p>
                                         <p class="uk-margin-remove uk-align-right"><label
-                                                class="uk-label uk-label-success uk-text-small">{{ $images->price }}.00 Mz
+                                                class="uk-label uk-label-success uk-text-small">{{ $images->price }}
                                             </label>
                                         </p>
-                                        <br>
                                         <p class="uk-margin-remove uk-align-right"><label
                                                 class="uk-label uk-label-danger uk-text-small">{{ $company->province .' | '. $company->district }}
                                             </label>

@@ -21,7 +21,7 @@
             integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
             crossorigin="anonymous" />
         <!-- CSS message -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+       <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     
 
@@ -115,26 +115,25 @@
         </div>
         <!-- Euclideo incoming changes -->
         
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
-        <script src="{{ asset('js/form.js') }}" defer></script>
-        <script src="{{ asset('js/company.js') }}" defer></script> 
-   
-
-        <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
-
+        <script src="{{ asset('js/app.js') }}" ></script>
         <script src="{{ asset('js/jquery-3.5.1.min.js') }}" ></script>
-        <script src="{{ asset('js/customApp.js') }}" ></script>
-        <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" 
-            integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/form.js') }}" ></script>
+        <script src="{{ asset('js/company.js') }}" ></script> 
 
+        <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" integrity="sha384-DkkWv9oJFWLIydBXXjkBWnG1/fuVhw8YPBq37uvvD6WSYRFRqr21eY5Dg9ZhmWdy" crossorigin="anonymous"></script>
+
+   
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/customApp.js') }}" ></script>
+       <!--  <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" 
+            integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+ -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
             integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
             crossorigin="anonymous"></script>
+
         @yield('post-script')
         @yield('post-script')
     </body>
     @stack('scripts')
-
 </html>

@@ -46,6 +46,7 @@
                         <button type="submit" class="uk-button uk-button-primary">
                             {{ __('Aceder') }}
                         </button>
+                        <a href="{{ route('register', ['query' => 'user']) }}">criar conta</a>
 
                         @if (Route::has('password.request'))
                         <a class="uk-button uk-button-link uk-margin-left" href="{{ route('password.request') }}">

@@ -13,7 +13,9 @@ class UserController extends Controller
 {
     public function profile()
     {
-
+        if(!Auth::user()){
+            return redirect()->back();
+        }
         if (is_null(Auth::user()->company)) {
             return view('auth.profile.user');
         } else {

@@ -17,11 +17,12 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $users = User::where('id', '!=', Auth::id())->get();
+        /* $users = User::where('id', '!=', Auth::id())->get();
          $this->data['users'] = $users;
-         return view('message.home', $this->data);
+         return view('message.home', $this->data); */
 
-        /* $id=Auth::id();
+
+         $id=Auth::id();
          $users = DB::table('users')
         ->Join('user_messages',function($join) {
                             $join->on('users.id','=','user_messages.sender_id')
@@ -30,10 +31,23 @@ class MessageController extends Controller
         ->where('user_messages.receiver_id', $id)
         ->orWhere('user_messages.sender_id', $id)
         ->select('users.name', 'users.*')->distinct()
-        ->get(); */
+        ->get();
 
+       /*  $currentUserId = Auth::user()->id;
+        $unviewedMessagesCount = Message::where('status', '0')
+        ->Join('user_messages',function($join) {
+            $join->on('users.id','=','user_messages.sender_id')
+                ->orWhere('users.id','`user_messages.receiver_id`');
+            })
+        ->where('user_messages.receiver_id', $id)
+        ->orWhere('user_messages.sender_id', $id)            
+        ->count();
+        */
+
+        //$unviewedCustomersMessagesCount = Message::where('status', '0')->where('user_messages.receiver_id', $id)->count();
         $this->data['users'] = $users;
-        return view('message.home1',  $this->data);
+        return view('message.home',  $this->data);
+    
     }
 
     public function conversation($userId) 

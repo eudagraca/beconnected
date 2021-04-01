@@ -31,6 +31,10 @@ Route::get('/profile', 'Auth\UserController@profile')
 
 // District company /
 Route::get('distrito/{id}/provincia', 'DistritoController@getDistritos');
+Route::get('/register', 'Auth\RegisterController@register')->name('register');
+Route::post('/register', 'Auth\RegisterController@create')->name('register');
+Route::get('/profile', 'Auth\UserController@profile')->name('user.profile');
+Route::resource('/admninPainel', 'AdminController'); 
 
 Route::get('distrito/{provincia}/provincia', 'DistritoController@getDistritos');
 
@@ -76,7 +80,15 @@ Route::any('uploadImage/{id}', 'ImagesController@UploadSubmit')
     ->name('uploadImage')
     ->middleware('auth');
 
-Route::post('updatephoto/{id}', 'ImagesController@updatephoto')
+Route::delete('image/{id}', 'ImagesController@destroy')
+    ->name('image.destroy')
+    ->middleware('auth');
+
+Route::get('editPhoto/{id}/edit', 'ImagesController@editPhoto')
+    ->name('empresa.editPhoto')
+    ->middleware('auth');
+
+Route::any('updatephoto/{id}', 'ImagesController@updatephoto')
     ->name('updatephoto')
     ->middleware('auth');
 
@@ -109,5 +121,7 @@ Route::post('send-message', 'MessageController@sendMessage')
 Route::get('send-message', 'MessageController@sendMessage')
     ->name('message.send-message')
     ->middleware('auth');
+
+
 
 

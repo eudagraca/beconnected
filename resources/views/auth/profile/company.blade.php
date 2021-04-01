@@ -7,11 +7,9 @@
              <div class="uk-card  uk-card-body uk-padding-remove uk-float-left">
             @if ($company->logo)
             <!-- uk-position-top-center uk-overlay uk-overlay-default uk-box-shadow-xlarge -->
-                <div class="uk-card-defaultt uk-inline " > 
-                    <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
-                    
+                <div class="uk-card-defaultt uk-inline " style="margin-left: 30px;" >
+                <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />    
                     <div class="uk-position-bottom-right uk-label-warning uk-border-circle  uk-overlay uk-overlay-default"><a class="uk-icon-button uk-label-warning " uk-icon="file-edit" href="#modal-sections0" uk-toggle> </a></div>
-                    
                 </div>
                 <div id="modal-sections0" uk-modal>
                     <div class="uk-modal-dialog">
@@ -334,24 +332,29 @@
                                                     <legend class="uk-legend " for="Product Name">Fotos da vetrine</legend>
                                                     <!-- <label for="Product Name">Product photos (can attach more than one):</label> -->
                                                         <div class="uk-margin">
-                                                        <div class="uk-width-1-1" uk-grid>
-                                                            <div class="uk-width-1-2@s">
-                                                                <input class="uk-input" name="name" type="text" placeholder="Nome">
+                                                                <div class="uk-width-1-1" uk-grid>
+                                                                <div class="uk-width-1-2@s">
+                                                                    <input class="uk-input" name="name" type="text" placeholder="Nome">
+                                                                </div>
+                                                                <div class="uk-width-1-2@s">
+                                                                    <input class="uk-input" name="price" type="text" placeholder="Preço: 299 Mts">
+                                                                </div>
+                                                                <div class="uk-width-1-1@s">
+                                                                    <input class="uk-input" name="descrition" type="text" placeholder="Descrição do artigo"> 
+                                                                    <!-- 2 -->
+                                                                </div>
                                                             </div>
-                                                            <div class="uk-width-1-2@s">
-                                                                <input class="uk-input" name="price" type="text" placeholder="Preço: 299 Mts">
-                                                            </div>'
-                                                        </div>
-                                                            <input class="uk-input" name="descrition" type="text" placeholder="Descrição do artigo"> 
-                                                            <!-- 2 -->
                                                         </div>
                                                         <span uk-icon="icon: cloud-upload"></span>
                                                         <span class="uk-text-middle">Anexe a imagem soltando-a aqui</span>
                                                         <div uk-form-custom>
                                                             <!-- <input type="file" multiple> -->
-                                                            <img  class="imagem" />
                                                             <input type="file" class="form-control input-file" name="photos[]" multiple />
                                                             <span class="uk-link">anexar images</span>
+                                                            <div class="uk-width-1-1@s">
+                                                                <p>Imagem por adicionar</p>
+                                                                <img class="uk-border-circle imagem uk-possition-center" style="width: 150px; height: 150px;" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
@@ -381,17 +384,18 @@
 
                                     <div class="uk-text-center">
                                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                                        <img style="width: 280px; height: 200px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
+                                        <img style="width: 280px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
                                             <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default">
                                                 <p class="uk-h4 uk-margin-remove">
                                                     <ul class="uk-iconnav">
-                                                        <li><a href="#modal-sectionsPhoto" id="{{ $images->id}}" uk-toggle uk-icon="icon: file-edit"></a></li>
-
+                                                        <li><a href="{{ route('empresa.editPhoto', $images->id)}}" id="{{ $images->id}}" uk-icon="icon: file-edit" data-community="{{ json_encode($images) }}"></a></li>
+                                                        <!-- <li><a href="#modal-sectionsPhoto" id="{{ $images->id}}" uk-toggle uk-icon="icon: file-edit" data-community="{{ json_encode($images) }}"></a></li> -->
+                                                        
                                                             <div id="modal-sectionsPhoto" uk-modal>
                                                                 <div class="uk-modal-dialog">
                                                                     <button class="uk-modal-close-default" type="button" uk-close></button>
                                                                     <div class="uk-modal-header">
-                                                                        <h4 class="uk-modal-title">Upload de images</h4>
+                                                                        <h4 class="uk-modal-title">Editar imagem</h4>
                                                                     </div>
                                                                     <div class="uk-modal-body">
                                                                         <p>
@@ -409,10 +413,12 @@
                                                                         <div class="row">
                                                                             <div class="col-md-3"></div>
                                                                                 <div class="col-md-6">
-                                                                                    <form class="" action="{{route('updatephoto', $images->id)}}" method="post" enctype="multipart/form-data">
+                                                                                    <form class="" action="{{route('updatephoto', $images->id)}}" action="/updatephoto/{{$images->id}}" method="post" id="editimagesForm__{{$images->id}}" enctype="multipart/form-data">
+                                                                                   
                                                                                         {{ csrf_field() }}
+
                                                                                             <div class="js-upload uk-placeholder uk-text-center">
-                                                                                            <legend class="uk-legend " for="Product Name">Fotos da vetrine</legend>
+                                                                                            <legend class="uk-legend " for="Product Name">Editar imagem da montra</legend>
                                                                                             <!-- <label for="Product Name">Product photos (can attach more than one):</label> -->
                                                                                                 <div class="uk-margin">
                                                                                                 <div class="uk-width-1-1" uk-grid>
@@ -437,7 +443,7 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                             <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
-                                                                                        <input type="submit" class="uk-button radius uk-button-primary" value="Upload" />
+                                                                                        <input type="submit" class="uk-button radius uk-button-primary" value="Upload" form="editimagesForm__{{$images->id}}" />
                                                                                     </form>
                                                                                 </div>
                                                                             </div>
@@ -453,8 +459,14 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        <li><a href="#" uk-icon="icon: copy"></a></li>
-                                                        <li><a href="#" uk-icon="icon: trash"></a></li>
+                                                        <!-- <li><a href="#" uk-icon="icon: copy"></a></li> -->
+                                                        <li>
+                                                            <form action="{{ route('image.destroy', $images->id)}}" method="post">
+                                                                {{ csrf_field() }}
+                                                                @method('DELETE')
+                                                                <button type="submit" uk-icon="icon: trash"></button>     
+                                                            </form>
+                                                        </li>
                                                     </ul> 
                                                 </p>
                                             </div>

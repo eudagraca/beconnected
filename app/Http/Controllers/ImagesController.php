@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Image_Details;
 use App\Images;
+use App\Provincia;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -134,9 +137,21 @@ class ImagesController extends Controller
         } */
     }
 
+    public function editPhoto(Request $request, $id)
+    {
+        $iddetalhe = Image_Details::where('id', $id)->find($id);
+        $detalhe=$iddetalhe->Image_id; 
+       
+        if(!$images = Images::where('id', $detalhe)->find($detalhe)){
+            return redirect()->back();
+       }
+        return view('company.editPhoto', compact(['images', 'iddetalhe']));
+    }
+
+
     public function updatephoto(Request $request, $id)
     {
-        $images = DB::table('Images')
+        /* $images = DB::table('Images')
             ->join('image__details', function ($join) use ($id) {
                 $join->on('Images.id', '=', 'image__details.Image_id')
                     ->where('image__details.id', '=', $id);
@@ -144,28 +159,54 @@ class ImagesController extends Controller
             ->get();
 
         if(!$images)
-        return redirect()->back();
+        return redirect()->back(); */
 
-        if(!$companyid = Images::where('id', $id)->find($id)){
+        $iddetalhe = Image_Details::where('id', $id)->find($id);
+        $detalhe=$iddetalhe->Image_id; 
+
+        $src=$request->src;
+        if($company = Image_Details::where('id', $id)->find($id));
+            if($request->photos && Storage::exists($company->src)) {
+                Storage::delete($company->src);
+                $logopath = $request->file('photos')->store('photos');
+                $dataphoto['src'] = $logopath; 
+                $company->update($dataphoto);   
+            } 
+            
+
+
+       
+       
+        if(!$images = Images::where('id', $detalhe)->find($detalhe)){
+            return redirect()->back();
+       }
+
+        /* if(!$companyid = Images::where('id', $id)->find($id)){
              return redirect()->back();
         }
-        $photoid=$companyid->id;
+        $photoid=$companyid->id; */
 
         $data = $request->only(
             'name', 'price', 'descrition');
-        $companyid->update($data);
-        $src=$request->src;
-        if($company = Image_Details::where('src', $src)->find($id));
-            if($company->src && Storage::exists($company->src)) {
-                Storage::delete($company->src);
-                
-            } 
-            $logopath = $request->file('photos')->store('photos');
-            $data['src'] = $logopath;
+        $images->update($data);
+
+        $provincia = Provincia::all();
+            $id =  Auth::user()->id;
+            $id_company=Auth::user()->company->id;
+            $imagesedit = DB::table('Images')
+            ->join('image__details', function ($join) use ($id_company) {
+                $join->on('Images.id', '=', 'image__details.Image_id')
+                    ->where('Images.company_id', '=', $id_company);
+            })
+            ->get();
+            $users = User::where('id', '!=', Auth::id())->get();
+
+            return view('auth.profile.company', ['image'=> $imagesedit, 'provincias_list' => $provincia, 'users'=>$users] )->with('company', Auth::user()->company, ['image'=> $images]);
+        
+        /* return redirect()->back()->back(); */
 
 
-        $company->update($data);
-        return redirect()->back();
+        
     }
 
     /**
@@ -174,8 +215,23 @@ class ImagesController extends Controller
      * @param  \App\Images  $images
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Images $images)
+    public function destroy($id)
     {
-        //
+        $iddetalhe = Image_Details::where('id', $id)->find($id);
+        $detalhe=$iddetalhe->Image_id; 
+
+ /*        if($company = Image_Details::where('id', $id)->find($id));
+            if($company->src && Storage::exists($company->src)) {
+                Storage::delete($company->src);
+                
+            }  */
+       
+        $images = Images::find($detalhe);
+            if(!$images)
+            return redirect()->back();
+
+        $images->delete();
+
+       return redirect()->back();
     }
 }

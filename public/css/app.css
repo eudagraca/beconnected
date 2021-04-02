@@ -13,7 +13,7 @@
 
 html {
   /* 1 */
-  font-family:'Comfortaa', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
@@ -626,7 +626,7 @@ a.uk-link-heading:hover,
 .uk-link-heading a:hover,
 .uk-link-toggle:hover .uk-link-heading,
 .uk-link-toggle:focus .uk-link-heading {
-  color: #32d296;
+  color: #491165;
   text-decoration: none;
 }
 
@@ -752,12 +752,6 @@ a.uk-link-reset,
   border-bottom: calc(0.2px + 0.05em) solid #e5e5e5;
 }
 
-.radius{
-  border-radius: 10px;
-  border: 0px solid;
-  padding: 10px;
-}
-
 /* Bullet
  ========================================================================== */
 
@@ -831,17 +825,6 @@ a.uk-link-reset,
 .uk-heading-line > ::after {
   left: 100%;
   margin-left: calc(5px + 0.3em);
-}
-
-.card-image-padding{
-  padding: 5px;
-}
-.uk-max-width {
- max-width: 300px;
-}
-
-.uk-height-max{
-  max-height: 400px;
 }
 
 /* ========================================================================
@@ -1028,7 +1011,7 @@ a.uk-link-reset,
 }
 
 .uk-list-primary > ::before {
-  color: #32d296 !important;
+  color: #491165 !important;
 }
 
 .uk-list-secondary > ::before {
@@ -1929,7 +1912,7 @@ button.uk-icon:not(:disabled) {
   outline: none;
   background-color: #fff;
   color: #666;
-  border-color: #32d296;
+  border-color: #491165;
 }
 
 /* Disabled */
@@ -2185,7 +2168,7 @@ select.uk-form-width-xsmall {
 .uk-radio:focus,
 .uk-checkbox:focus {
   outline: none;
-  border-color: #32d296;
+  border-color: #491165;
 }
 
 /*
@@ -2195,7 +2178,7 @@ select.uk-form-width-xsmall {
 .uk-radio:checked,
 .uk-checkbox:checked,
 .uk-checkbox:indeterminate {
-  background-color: #32d296;
+  background-color: #491165;
   border-color: transparent;
 }
 
@@ -2204,7 +2187,7 @@ select.uk-form-width-xsmall {
 .uk-radio:checked:focus,
 .uk-checkbox:checked:focus,
 .uk-checkbox:indeterminate:focus {
-  background-color: #32d296;
+  background-color: #290a39;
 }
 
 /*
@@ -2554,7 +2537,7 @@ select.uk-form-width-xsmall {
  */
 
 .uk-button-primary {
-  background-color: #32d296;
+  background-color: #491165;
   color: #fff;
   border: 1px solid transparent;
 }
@@ -2563,7 +2546,7 @@ select.uk-form-width-xsmall {
 
 .uk-button-primary:hover,
 .uk-button-primary:focus {
-  background-color: #32d296;
+  background-color: #390d4f;
   color: #fff;
 }
 
@@ -2571,7 +2554,7 @@ select.uk-form-width-xsmall {
 
 .uk-button-primary:active,
 .uk-button-primary.uk-active {
-  background-color: #32d296;
+  background-color: #290a39;
   color: #fff;
 }
 
@@ -2852,17 +2835,17 @@ select.uk-form-width-xsmall {
  */
 
 .uk-progress::-webkit-progress-value {
-  background-color: #32d296;
+  background-color: #491165;
   -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease;
 }
 
 .uk-progress::-moz-progress-bar {
-  background-color: #32d296;
+  background-color: #491165;
 }
 
 .uk-progress::-ms-fill {
-  background-color: #32d296;
+  background-color: #491165;
   -ms-transition: width 0.6s ease;
   transition: width 0.6s ease;
   /* 1 */
@@ -2983,7 +2966,7 @@ select.uk-form-width-xsmall {
  */
 
 .uk-section-primary {
-  background: #32d296;
+  background: #491165;
 }
 
 /*
@@ -3316,7 +3299,7 @@ select.uk-form-width-xsmall {
  */
 
 .uk-tile-primary {
-  background: #32d296;
+  background: #491165;
 }
 
 /*
@@ -3437,8 +3420,6 @@ select.uk-form-width-xsmall {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-
-
 .uk-card-default .uk-card-title {
   color: #333;
 }
@@ -3461,7 +3442,7 @@ select.uk-form-width-xsmall {
  */
 
 .uk-card-primary {
-  background: #32d296;
+  background: #491165;
   color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
@@ -3471,7 +3452,7 @@ select.uk-form-width-xsmall {
 }
 
 .uk-card-primary.uk-card-hover:hover {
-  background-color: #32d296;
+  background-color: #491165;
   box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
 }
 
@@ -3857,7 +3838,7 @@ select.uk-form-width-xsmall {
 
 .uk-alert-primary {
   background: #c1aecb;
-  color: #32d296;
+  color: #491165;
 }
 
 /*
@@ -3952,7 +3933,7 @@ select.uk-form-width-xsmall {
   border-radius: 500px;
   vertical-align: middle;
   /* 1 */
-  background: #32d296;
+  background: #491165;
   color: #fff;
   font-size: 0.875rem;
   /* 2 */
@@ -3979,7 +3960,7 @@ select.uk-form-width-xsmall {
 .uk-label {
   display: inline-block;
   padding: 0 10px;
-  background: #32d296;
+  background: #491165;
   line-height: 1.5;
   font-size: 0.875rem;
   color: #fff;
@@ -5219,8 +5200,7 @@ select.uk-form-width-xsmall {
   box-sizing: border-box;
   width: 270px;
   padding: 20px 20px;
-/*   background: #222; */
-background-image: linear-gradient(#32d296, #32d296);
+  background: #222;
   /* 3 */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -5519,6 +5499,7 @@ background-image: linear-gradient(#32d296, #32d296);
 /* ========================================================================
    Component: Notification
  ========================================================================== */
+
 /*
  * 1. Set position
  * 2. Dimensions
@@ -5611,7 +5592,7 @@ background-image: linear-gradient(#32d296, #32d296);
  */
 
 .uk-notification-message-primary {
-  color: #32d296;
+  color: #491165;
 }
 
 /*
@@ -7147,7 +7128,7 @@ ul.uk-nav-sub {
 /* Active */
 
 .uk-subnav-pill > .uk-active > a {
-  background-color: #32d296;
+  background-color: #491165;
   color: #fff;
 }
 
@@ -7375,7 +7356,7 @@ ul.uk-nav-sub {
 
 .uk-tab > .uk-active > a {
   color: #333;
-  border-color: #32d296;
+  border-color: #491165;
 }
 
 /* Disabled */
@@ -7386,7 +7367,7 @@ ul.uk-nav-sub {
 
 /* Position modifier
  ========================================================================== */
- 
+
 /*
  * Bottom
  */
@@ -9531,11 +9512,6 @@ ul.uk-nav-sub {
   font-weight: 400;
 }
 
-.uk-text-normal-black {
-    font-weight: 400;
-    color: black;
-}
-
 .uk-text-bold {
   font-weight: 700;
 }
@@ -9582,7 +9558,7 @@ ul.uk-nav-sub {
 }
 
 .uk-text-primary {
-  color: #32d296 !important;
+  color: #491165 !important;
 }
 
 .uk-text-secondary {
@@ -9617,12 +9593,12 @@ ul.uk-nav-sub {
   /* 2 */
   display: inline-block;
   /* 3 */
-  color: #32d296 !important;
+  color: #491165 !important;
 }
 
 @supports (-webkit-background-clip: text) {
   .uk-text-background {
-    background-color: #32d296;
+    background-color: #491165;
     color: transparent !important;
   }
 }
@@ -10045,7 +10021,7 @@ iframe.uk-cover {
 }
 
 .uk-background-primary {
-  background-color: #32d296;
+  background-color: #491165;
 }
 
 .uk-background-secondary {

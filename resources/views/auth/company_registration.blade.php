@@ -2,10 +2,10 @@
 
 @section('content')
 {{--  @dd($errors->all())  --}}
-<div class="uk-section uk-section-small uk-padding-large uk-section-muted uk-flex uk-flex-center">
-    <div class="uk-card uk-card-default uk-width-1-1@s  uk-margin-large">
-        <h2 class="uk-card-title uk-card-header uk-text-bolder uk-margin-remove-top uk-text-bolder">Registar empresa
-        </h2>
+<div class="uk-section uk-section-small  uk-flex uk-flex-center">
+    <div class="uk-card uk-width-1-1@s  uk-margin-large">
+        <h6 class="uk-card-title uk-card-header uk-text-bolder uk-margin-remove-top uk-text-muted">Registar empresa
+        </h6>
         <div class="uk-card-body">
             <form enctype="multipart/form-data" method="post" action="{{ route('register', ['query' => 'company']) }}" class="uk-form-stacked">
             @csrf

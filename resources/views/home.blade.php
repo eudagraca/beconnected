@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="uk-position-relative uk-cover-container uk-container uk-visible-toggle" tabindex="-1" uk-slideshow="min-height: 300; max-height: 300; animation: push">
+<div class="uk-position-relative uk-cover-container  uk-visible-toggle" tabindex="-1" uk-slideshow="min-height: 500; max-height: 500; animation: push">
     <ul class="uk-slideshow-items">
         <li>
             <img src="../storage/Company/banner-single-post-kw-prestacao-de-servicos.jpg" alt="" uk-cover>
@@ -8,7 +8,7 @@
  
                 <div class="uk-inline uk-float-right ">
                     <!-- <button class="btn-red search-form uk-button uk-dark uk-button-default uk-float-left uk-button-primary" type="button">Faca sua Busca</button> -->
-                    <div class="">
+                    <div class="uk-container">
                         <ul>
                         <form action="{{ route('company.search') }}" method="POST" class="uk-form-stacked ">
                             @csrf

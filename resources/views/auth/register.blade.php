@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="uk-section uk-section-small uk-padding-large uk-section-muted uk-flex uk-flex-center">
-    <div class="uk-card uk-card-default uk-width-1-1@s  uk-margin-large">
-        <h2 class="uk-card-title uk-card-header uk-text-bolder">Registar usuário</h2>
+<div class="uk-section uk-section-small uk-margin-remove-top uk-pedding-remove-top uk-flex uk-flex-center">
+    <div class="uk-card  uk-width-1-1@s  uk-margin-large">
+        <h6 class="uk-card-title uk-card-header uk-margin-remove uk-pedding-remove uk-flex uk-flex-center uk-text-muted">Usuário</h6>
         <div class="uk-card-body">
             <form method="POST" action="{{ route('register') }}" class="uk-form-stacked" uk-grid>
                 @csrf
                 <input value="user" type="text" name="role" hidden>
-                <div class="uk-margin uk-width-1-3@s">
+                <div class=" uk-width-1-3@s">
                     <label for="first_names" class="uk-form-label">
                         {{ __('Primeiros nomes') }}
                     </label>
@@ -21,7 +21,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="uk-margin uk-width-1-3@s">
+                <div class=" uk-width-1-3@s">
                     <label for="last_name" class="uk-form-label">
                         {{ __('Último nome') }}
                     </label>
@@ -34,7 +34,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="uk-margin uk-width-1-3@s">
+                <div class=" uk-width-1-3@s">
                     <label for="email" class="uk-form-label">
                         {{ __('Endereço de e-mail') }}
                     </label>

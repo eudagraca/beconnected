@@ -22,7 +22,7 @@
             <div class="uk-container uk-container-expand">
                 <nav uk-navbar>
                     <div class="uk-navbar-left">
-                        <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
+                        <a id="sidebar_toggle" class="uk-navbar-toggle"  ></a>
                         <a href="#" class="uk-navbar-item uk-logo">
                             be Connected
                         </a>
@@ -30,10 +30,10 @@
                     <div class="uk-navbar-right uk-light">
                         <ul class="uk-navbar-nav">
                             <li class="uk-active">
-                                <a href="#">{{ Auth::user()->name }} &nbsp;<span class="ion-ios-arrow-down"></span></a>
+                                <a href="#" uk-navbar-toggle-icon> &nbsp;<span class="ion-ios-arrow-down"></span></a>
                                 <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                       <li class="uk-nav-header">Opcções</li>
+                                       <li class="uk-nav-header">{{ Auth::user()->name }}</li>
                                        <li><a href="#">Editar Perfil</a></li>
                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Terminar a sessão') }}

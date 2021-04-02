@@ -21,9 +21,8 @@
             integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
             crossorigin="anonymous" />
         <!-- CSS message -->
-       <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
         <!-- euclideo incoming changes -->
             <link href="{{ asset('css/company.css') }}" rel="stylesheet">
@@ -31,17 +30,18 @@
             <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
             <link rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+                
+
     </head>
 
     <body>
         <div id="app">
             <div class=" gold uk-light ">
-                <nav class="uk-navbar-container uk-navbar-transparent">
+                <nav class="uk-navbar-container uk-tile-default">
                     <div class="uk-container">
                         <div class="uk-navbar" data-uk-navbar>
                             <div class="uk-navbar-left">
-                                <a class="uk-navbar-item uk-padding-top-remove uk-text-bolder uk-logo logocolor" href="/"  style="color: #32d296; font-size:18px; font-family:'Comfortaa', cursive;">{{ config('app.name', 'Laravel') }}</a>
+                                <a class="uk-navbar-item uk-padding-top-remove uk-text-bolder uk-logo logocolor" href="/"  style="color: #000000; font-size:18px; font-family:'Comfortaa', cursive;">{{ config('app.name', 'Laravel') }}</a>
 
                                 <!--<ul class="uk-navbar-nav">
                                     <li>
@@ -59,24 +59,36 @@
                                     @guest
                                     @if (Route::has('login'))
                                     <li>
-                                        <a style="color: #32d296;" href="{{ route('login') }}">{{ __('Log In') }}</a>
+                                        <a class="uk-button-default uk-button uk-border-rounded" style="color: #000000;" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                                     </li>
                                     @endif
                                     @if (Route::has('register'))
                                     <li>
-                                        <a style="color: #32d296;"
+                                        <a style="color: #000000;"
                                             href="{{ route('register', ['query'=> 'chooseAccount']) }}">{{ __('Registar') }}</a>
                                     </li>
                                     @endif
                                     @else
                                     <li>
-                                        <a style="color: #32d296;" href="#">
+                                        <!-- <a style="color: #32d296;" href="#">
                                             {{ Auth::user()->name }}
+                                        </a> -->
+                                        <a href="#" style="color: #000000;" uk-navbar-toggle-icon > &nbsp;
+                                            <span class="ion-ios-arrow-down"></span>
                                         </a>
-                                        <div class="uk-navbar-dropdown uk-margin-remove-top uk-margin-remove-right">
+                                        <div class="uk-navbar-dropdown uk-margin-remove-top uk-margin-remove-right" >
                                             <ul class="uk-nav uk-navbar-dropdown-nav uk-list uk-list-striped">
-                                                <li class="uk-padding-remove"><a href="{{ route('user.profile') }}">Meu
-                                                        Perfil</a></li>
+                                                <li class="uk-padding-remove">
+                                                    <a style="color: #32d296;" href="#">
+                                                        {{ Auth::user()->name }}
+                                                    </a>
+                                                </li>
+                                                <br>
+                                                <li class="uk-padding-remove">
+                                                    <a href="{{ route('user.profile') }}">
+                                                        Meu Perfil
+                                                    </a>
+                                                </li>
                                                 <li class="uk-padding-remove">
                                                     <a href="{{ route('logout') }}"
                                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -116,18 +128,18 @@
         <!-- Euclideo incoming changes -->
         
         <script src="{{ asset('js/app.js') }}" ></script>
-        <script src="{{ asset('js/jquery-3.5.1.min.js') }}" ></script>
-        <script src="{{ asset('js/form.js') }}" ></script>
-        <script src="{{ asset('js/company.js') }}" ></script> 
+        <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
+        <script src="{{ asset('js/form.js') }}"></script>
+        <script src="{{ asset('js/company.js') }}" defer></script> 
 
-        <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" integrity="sha384-DkkWv9oJFWLIydBXXjkBWnG1/fuVhw8YPBq37uvvD6WSYRFRqr21eY5Dg9ZhmWdy" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" integrity="sha384-DkkWv9oJFWLIydBXXjkBWnG1/fuVhw8YPBq37uvvD6WSYRFRqr21eY5Dg9ZhmWdy" crossorigin="anonymous"></script> -->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+        <script src="{{ asset('js/main.js') }}" ></script>
+        <!-- <script src="{{ asset('js/customApp.js') }}"></script> -->
+        <!-- <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" 
+            integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script> -->
 
-   
-        <script src="{{ asset('js/main.js') }}"></script>
-        <script src="{{ asset('js/customApp.js') }}" ></script>
-       <!--  <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" 
-            integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
- -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
             integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
             crossorigin="anonymous"></script>

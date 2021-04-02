@@ -92,13 +92,14 @@ Route::any('updatephoto/{id}', 'ImagesController@updatephoto')
     ->name('updatephoto')
     ->middleware('auth');
 
+
+    
+
 //Route to send and receive message
+Route::get('message/home', 'MessageController@index')->name('message.home')->middleware('auth');
+
 Route::get('/message/{userId}', 'MessageController@show')
     ->name('message.show')
-    ->middleware('auth');
-
-Route::get('message/home', 'MessageController@index')
-    ->name('message.home')
     ->middleware('auth');
 
 Route::get('conversation/{userId}', 'MessageController@conversation')

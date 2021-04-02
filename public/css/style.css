@@ -1,8 +1,9 @@
 .chat-user-list {
     list-style: none;
     text-emphasis-color: #464646;
-    color: aqua;
+    color: rgb(0, 0, 0);
 }
+
 
 
 .name-image {

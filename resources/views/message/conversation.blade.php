@@ -75,7 +75,7 @@
 
 
     <div class="uk-container" >
-    <ul class="uk-padding uk-list uk-inline uk-button-primary  uk-width-expand@m uk-inline uk-light " data-src="../storage/company/unnamed.png" uk-img>
+    <ul class="uk-padding uk-list uk-inline uk-width-expand@m uk-inline uk-light " data-src="../storage/company/unnamed.png" uk-img>
         <li class="uk-position-top-left uk-padding-remove-bottom"><a class="uk-link-reset uk-text-lowercase"  href="{{ route('message.home') }}"><div class="uk-grid-small uk-flex-middle" uk-grid>
                 <div class="uk-width-auto uk-section-danger">
                 <a href="{{ route('message.home') }}" class="uk-icon-link uk-icon-button uk-button-default" uk-icon="arrow-left"></a>
@@ -96,11 +96,11 @@
     <div class="uk-card uk-card-default uk-width-1-1@m">
     <div class="row chat-row">
         <div class="chat-section">
-                <div class="uk-height-medium" data-src="../storage/company/unnamed.png" uk-img>
+                <div class="uk-height-medium" data-src="" uk-img>
                     <div class="js-wrapper">
                         <div uk-overflow-auto="selContainer: .uk-height-medium; selContent: .js-wrapper">
                             <div class="uk-grid-small" uk-grid >
-                                <div class="chat-body uk-comment-list uk-clearfix" id="chatBody" data-src="../storage/company/unnamed.png" uk-img>
+                                <div class="chat-body uk-comment-list uk-clearfix" id="chatBody" data-src="" uk-img>
                                     <div class="uk-clearfix message-listing uk-padding-bottom uk-width-expand@m" id="messageWrapper">
 
                                      
@@ -213,7 +213,7 @@
 
             function appendMessageToSender(message) {
                 let name = '{{ $myInfo->name }}';
-                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
+                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
 
                 let userInfo = '<div class="col-md-12 user-info">\n' +
                     '<div class="chat-image">\n' + image +
@@ -243,7 +243,7 @@
 
             function appendMessageToReceiver(message) {
                 let name = '{{ $friendInfo->name }}';
-                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
+                let image = '<img class="uk-border-circle" width="40" height="40" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">';
 
                 let userInfo = '<div class="col-md-12 user-info ">\n' +
                     '<div class="chat-image">\n' + image +

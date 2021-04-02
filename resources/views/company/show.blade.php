@@ -37,15 +37,203 @@
 
 </div> -->
 
-<div class="uk-section uk-padding-remove uk-section-small uk-section-muted">
+<div class="uk-container">
+    <div class="uk-section uk-section-small uk-tile-default">
+        <div class="uk-margin-remove uk-padding-remove">
+            <ul class="uk-margin-remove uk-padding-remove uk-flex-center " uk-tab>
+                
+                    @if ($company->logo) 
+                        <!-- <a class="uk-button "  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
+                            <img class="uk-border-circle" style="width: 100px; height: 100px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
+                        </a> -->
+                        <a class="uk-button "  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
+                            <div class="uk-card-defaultt uk-padding-remove uk-margin-remove uk-padding-remove-botton" style=" align-items: center;">
+                                <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
+                            </div>
+                        </a>
+                        @else
+                        <img class="uk-border-circle uk-image-possition" src="https://getuikit.com/docs/image/avatar.jpg"
+                                style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo" />
+                    @endif
+
+                    <li>
+                    <p class="uk-heading-line uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
+                    </h4></span></p>
+                    <p class=" uk-text-small uk-text-muted uk-padding-remove uk-margin-remove uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
+                        {{ $company->phone}}</p>
+                    <p class="uk-text-bolder uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->user->email?? 'N/A' }} &nbsp</p>
+                    <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->address }} </p>
+
+                    <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->district }}
+                        {{ $company->province }} </p><br>
+                    <ul class=" uk-flex-center uk-padding-remove uk-margin-remove" >
+                        <a class="uk-icon-button uk-button-default" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
+                        <a href="https://www.facebook.com/" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
+                        <a href="https://api.whatsapp.com/send?phone=258{{ $company->phone}}" class="uk-icon-button uk-margin-small-right" uk-icon="whatsapp"></a>
+                        <a href="" class="uk-icon-button uk-button-default " uk-icon="world"></a>    
+                    </ul>
+
+                    </li>
+                 <br>   
+            </ul>
+        </div>
+
+        <div class="uk-margin-medium-top">
+            <ul class="uk-flex-center" uk-tab>
+                <li class="uk-active"><a href="#">Galeria</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Denuncie</a></li>
+            </ul>
+
+            <ul class="uk-switcher uk-margin">
+                <li>
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+                    @foreach ($image as $images)
+                    <div class="uk-card uk-grid-match uk-padding-remove uk-grid-collapse uk-width-1-3@s uk-margin" uk-grid uk-lightbox="animation: slide">
+                        <div class="uk-margin-remove-left">                    
+                            <div class="radius1">
+                                <div uk-lightbox>
+
+                                <div class="uk-text-center">
+                                    <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                                        <a class="uk-button"  href="{{ url("storage/{$images->src}") }}" data-caption="{{ $images->name}}" data-caption="{{ $images->descrition}}"> 
+                                            <img style="width: 380px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
+                                        </a>
+                                        <div class="uk-position-center">
+                                            <span class="uk-transition-fade" uk-icon="icon: plus; ratio: 2"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-1@m">
+                            <div class="uk-card-body uk-padding-small">
+                            <ul class=" uk-align-right uk-padding-remove uk-margin-remove" >
+                                <a class="uk-icon-button uk-button-default" type="button" uk-icon="star" uk-toggle="target: #offcanvas-flip"></a>
+                                <a href="#" class="uk-icon-button  uk-margin-small-right"  uk-icon="happy" ></a>
+                                <a href="#" class="uk-icon-button uk-label-danger uk-margin-small-right" uk-icon="heart"></a>
+                            </ul>
+                            <p class="uk-margin-small-top">{{ $images->name }}</p>
+                                <p class="uk-margin-remove uk-align-right"><label
+                                        class="uk-label uk-label-success uk-text-small">{{ $images->price }}
+                                    </label>
+                                </p>
+                                <p class="uk-margin-remove uk-align-right"><label
+                                        class="uk-label uk-label-danger uk-text-small">{{ $company->province .' | '. $company->district }}
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                </li>
+
+
+                <li>
+                <div class="uk-slider-container-offset" uk-slider>
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+                            <li>
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img src="images/photo.jpg" alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title uk-text-bold">
+                                            {{ $company->company_name}}</h3>
+                                            <p>{{ $company->about_company }}</p>                                                
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img src="images/dark.jpg" alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title uk-text-bold">{{ $company->segment_area}}</h3>
+                                        <p>{{ $company->main_services }}</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img src="images/photo.jpg" alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title uk-text-bold">
+                                            {{ $company->company_name}}</h3>
+                                            <p>{{ $company->about_company }}</p>  
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img src="images/dark.jpg" alt="">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3 class="uk-card-title uk-text-bold">{{ $company->segment_area}}</h3>
+                                        <p>{{ $company->main_services }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+
+                </li>
+
+                <li>
+
+                <form>
+                    <fieldset class="uk-fieldset">
+
+                        <p class="uk-text-left">Caro usuário, para o procedimento de denúncia, queira por favor
+                            preencher o formulário a seguir</p>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" name="motivation" type="text" placeholder="Motivo">
+                        </div>
+
+                        <div class="uk-margin">
+                            <textarea class="uk-textarea" rows="5"
+                                placeholder="Descrição do ocorrido"></textarea>
+                        </div>
+
+                        <div class="uk-margin">
+                            <button class="uk-button uk-button-secondary uk-align-right"
+                                type="button">Submeter</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- 
+<div class="uk-section uk-padding-remove uk-section-small uk-tile-default uk-section-muted">
     <div class="uk-text-center uk-padding" uk-grid>
         <div class="uk-width-1-5@m">
-             <div class="uk-card uk-card-body uk-padding-remove uk-float-left">
+             <div class="uk-card uk-card-body uk-padding-remove uk-margin-remove uk-float-left">
                  
                     @if ($company->logo) 
                     <div uk-lightbox>
-                        <a class="uk-button"  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
-                            <div class="uk-card-defaultt uk-padding-remove-botton" style="margin-left: 30px; align-items: center;">
+                        <a class="uk-button "  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
+                            <div class="uk-card-defaultt uk-padding-remove uk-margin-remove uk-padding-remove-botton" style=" align-items: center;">
                                 <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
                             </div>
                         </a>
@@ -58,20 +246,20 @@
 
                 {{-- Location  --}}
                 <div class="uk-margin-small-top">
-                    <p class="uk-heading-line uk-text-left uk-text-small"><span><h4 class="uk-text-bolder uk-text-left uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
+                    <p class="uk-heading-line uk-text-left uk-padding-remove uk-margin-remove uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
                     </h4></span></p>
-                    <p class="uk-text-primary uk-text-small uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
+                    <p class=" uk-text-small uk-text-muted uk-padding-remove uk-margin-remove uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
                         {{ $company->phone}}</p>
-                    <p class="uk-text-bolder uk-text-left uk-margin-remove-bottom">{{ $company->user->email?? 'N/A' }} &nbsp</p>
-                    <p class="uk-text-left uk-text-muted uk-margin-remove-bottom">{{ $company->address }} </p>
+                    <p class="uk-text-bolder uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->user->email?? 'N/A' }} &nbsp</p>
+                    <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->address }} </p>
 
-                    <p class="uk-text-left uk-text-muted uk-margin-remove-top">{{ $company->district }}
+                    <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->district }}
                         {{ $company->province }} </p>
                 </div>
             </div>
         </div>
         <div class="uk-width-expand@m">
-            <div class=" uk-padding-remove-top">
+            <div class=" uk-padding-remove-top"> -->
                 <!-- <div uk-grid> -->
 
                 
@@ -91,12 +279,12 @@
                             <span class="fa fa-star"></span>
                     </div>
                 </div> -->
-                <div class="uk-card uk-padding-remove uk-card-body">
+<!--                 <div class="uk-card uk-padding-remove uk-card-body">
                         <a class="uk-icon-button uk-button-default uk-label-success" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
                         <a href="https://www.facebook.com/" class="uk-icon-button uk-button-primary uk-margin-small-right" uk-icon="facebook"></a>
                         <a href="https://api.whatsapp.com/send?phone=258{{ $company->phone}}" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="whatsapp"></a>
                         <a href="" class="uk-icon-button uk-button-default " uk-icon="world"></a>    
-                    </div>
+                    </div-->
                     <div id="offcanvas-flip" class="uk-card-dafault" uk-offcanvas="flip: true; overlay: true">
                         <div class="uk-offcanvas-bar uk-padding-remove" data-src="../storage/company/unnamed.png" uk-img>
                             <button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -124,7 +312,7 @@
                                                             @foreach($users as $user)
                                                             <tr class="uk-inline">
                                                                 <td><!-- <img class="uk-preserve-width uk-border-circle" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" width="40" alt=""> -->
-                                                                <!-- <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="user"></a> -->
+                                                                <!-- <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="user"></a> ->
                                                                 </td>
                                                                 <td class="uk-table-link uk-light  uk-list-divider">
                                                                     <a class="uk-link-reset uk-light" href="{{ route('message.conversation', $user->id )}}">
@@ -132,7 +320,7 @@
                                                                         <!-- <div class="chat-image">
                                                                             <i class="fa fa fa-circle user-status-icon user-icon-{{ $user->id }}" title="away"></i>
                                                                         </div> -->
-                                                                       <!--  {{ $user->name}} -->
+                                                                       <!--  {{ $user->name}} ->
                                                                     </a>
                                                                     <!-- <a class="uk-link-reset" href="">{{ $user->name}}</a> -->
                                                                 </td>
@@ -169,7 +357,7 @@
                             </ul>
                         </div>
                     </div>
-                <p class="uk-heading-line uk-text-left uk-text-small"><span></span></p>
+                <!--p class="uk-heading-line uk-text-left uk-text-small"><span></span></p>
                 <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
                 <li><a href="#">Galeria</a></li>
                 <li><a href="#">Sobre</a></li>
@@ -182,7 +370,7 @@
                     
                         <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
                             @foreach ($image as $images)
-                            <div class="uk-card uk-card-default uk-grid-match uk-padding-remove uk-grid-collapse uk-width-1-3@s uk-margin" uk-grid>
+                            <div class="uk-card uk-grid-match uk-padding-remove uk-grid-collapse uk-width-1-3@s uk-margin" uk-grid uk-lightbox="animation: slide">
                                 <div class="uk-margin-remove-left">                    
                                     <div class="radius1">
                                         <div uk-lightbox>
@@ -190,7 +378,7 @@
                                         <div class="uk-text-center">
                                             <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
                                                 <a class="uk-button"  href="{{ url("storage/{$images->src}") }}" data-caption="{{ $images->name}}" data-caption="{{ $images->descrition}}"> 
-                                                    <img style="width: 280px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
+                                                    <img style="width: 380px; height: 250px" class="radius2 card-image-padding uk-height-max uk-max-width"  src="{{ url("storage/{$images->src}") }}" alt="descricao">
                                                 </a>
                                                 <div class="uk-position-center">
                                                     <span class="uk-transition-fade" uk-icon="icon: plus; ratio: 2"></span>
@@ -312,7 +500,7 @@
                         </ul>
 
                           <!--   <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a> -->
+                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a> ->
 
                         </div>
                         <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>

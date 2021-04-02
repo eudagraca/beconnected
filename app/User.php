@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use App\Http\Traits\Hashidable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;

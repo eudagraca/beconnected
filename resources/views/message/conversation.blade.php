@@ -1,85 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<button class="uk-button  uk-button-primary uk-hidden uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-push" uk-icon="icon: table"></button>
-<div class=" uk-card-primary "  ></div>
-<div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
-    <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-                <ul class="uk-nav uk-nav-primary">
-                    <li class="uk-active"><a href="#">Active</a></li>
-                    <li class="uk-parent">
-                        <a href="#">Parent</a><!-- 
-                        <ul class="uk-nav-sub">
-                            <li><a href="#">Sub item</a></li> -->
-                            <div class="uk-card uk-card-default uk-width-1-1@m">
-                                <div class="uk-card-header">
-                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                        <div class="uk-width-auto">
-                                        <img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
-                                        </div>
-                                        <div class="uk-width-expand">
-                                            <p class=" uk-margin-remove-bottom">{{ Auth::user()->name }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="uk-card-body">
-                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> -->
-                                </div>
-                                <div class="uk-card-footer">
-                                    <a href="#" class="uk-button uk-button-text">Read more</a>
-                                </div>
-                            </div><!-- 
-                            <li><a href="#">Sub item</a></li>
-                        </ul> -->
-                    </li>
-                    <li class="uk-nav-header">Header</li>
-                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
-                    
-                    <div class="uk-card uk-card uk-card-body">
-                        <div class="uk-card-badge uk-label">Badge</div>
-                        <h3 class="uk-card-title">Title</h3>
-                        <p><div class="row chat-row">
-                        <div class="">
-                            <div class="users">
-                                <h5>Users</h5>
-
-                                <ul class="list-group list-chat-item"><p>
-                                    @if($users->count())
-                                        @foreach($users as $user)
-                                            <li class="chat-user-list
-                                                @if($user->id == $friendInfo->id) active @endif">
-                                                <a href="{{ route('message.conversation', $user->id) }}">
-                                                    <div class="chat-image">
-                                                        <img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
-                                                        <i class="fa fa-circle user-status-icon user-icon-{{ $user->id }}" title="away"></i>
-                                                    </div>
-
-                                                    <div class="chat-name font-weight-bold">
-                                                        {{ $user->name }}
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    @endif
-                                </p></ul>
-                            </div>
-                        </div></p>
-                    </div>
-            
-                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
-                </ul>
-            </div>
-        </div>
-
-
-    <div class="uk-container" >
-    <ul class="uk-padding uk-list uk-inline uk-width-expand@m uk-inline uk-light " data-src="../storage/company/unnamed.png" uk-img>
+<div class="uk-margin-remove uk-padding-remove" >
+    <ul class="uk-list uk-inline uk-width-expand@m uk-text-capitalize uk-label-success uk-inline " uk-img style="color: black;">
         <li class="uk-position-top-left uk-padding-remove-bottom"><a class="uk-link-reset uk-text-lowercase"  href="{{ route('message.home') }}"><div class="uk-grid-small uk-flex-middle" uk-grid>
                 <div class="uk-width-auto uk-section-danger">
-                <a href="{{ route('message.home') }}" class="uk-icon-link uk-icon-button uk-button-default" uk-icon="arrow-left"></a>
-                    <img class="uk-border-circle" width="40" height="40" src="../../storage/company/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" alt="logo">
+                <a href="{{ route('user.profile') }}" class="uk-icon-link uk-icon-button uk-button-default" uk-icon="arrow-left"></a>
+                    <a href="" class="uk-icon-button uk-label-default " uk-icon="user"></a>
                 </div>
                 <div class="uk-width-expand uk-padding-remove-bottom">
                     <p class="uk-margin-remove-bottom">{{ $friendInfo->name }}</p>
@@ -93,7 +19,7 @@
     <hr>
 
 
-    <div class="uk-card uk-card-default uk-width-1-1@m">
+    <div class="uk-card uk-width-1-1@m">
     <div class="row chat-row">
         <div class="chat-section">
                 <div class="uk-height-medium" data-src="" uk-img>
@@ -119,7 +45,20 @@
 
             <div class="chat-box uk-container uk-card-default uk-position-bottom uk-position-fixed uk-width-1-1@m">
                 <div class=" chat-input uk-container bg-white" id="chatInput" contenteditable="">
+
                 </div>
+
+
+
+                <!-- <div class=" uk-container "  >
+                    <span class="chat-input uk-span-chat " contenteditable="">
+                        <a href="#" class="uk-icon-link uk-margin-small-left bg-white" id="chatInput" uk-icon="chevron-right"></a>
+                    </span>
+                </div> -->
+
+                
+
+
 
 
                     <div class="chat-input-toolbar uk-container">

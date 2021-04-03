@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-push" uk-icon="icon: table"></button>
+<!-- <button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-push" uk-icon="icon: table"></button>
 
 <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
     <div class="uk-offcanvas-bar" data-src="../storage/company/unnamed.png" uk-img> 
@@ -14,7 +14,7 @@
                     <li class="uk-parent">
                         <a href="#">Parent</a><!-- 
                         <ul class="uk-nav-sub">
-                            <li><a href="#">Sub item</a></li> -->
+                            <li><a href="#">Sub item</a></li> ->
                             <div class="uk-card uk-card-default uk-width-1-1@m">
                                 <div class="uk-card-header">
                                     <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -27,14 +27,14 @@
                                     </div>
                                 </div>
                                 <div class="uk-card-body">
-                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> -->
+                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> ->
                                 </div>
                                 <div class="uk-card-footer">
                                     <a href="#" class="uk-button uk-button-text">Read more</a>
                                 </div>
                             </div><!-- 
                             <li><a href="#">Sub item</a></li>
-                        </ul> -->
+                        </ul> ->
                     </li>
                     <li class="uk-nav-header">Header</li>
                     <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
@@ -49,7 +49,7 @@
                                         @foreach($users as $user)
                                             <li class="chat-user-list">
                                                 <a href="{{ route('message.conversation', $user->id )}}">
-                                                <!-- <a href="{{ route('message.show', $user->id )}}"> -->
+                                                <!-- <a href="{{ route('message.show', $user->id )}}"> ->
                                                     <div class="chat-image">
                                                         <i class="fa fa fa-circle user-status-icon user-icon-{{ $user->id }}" title="away" id="userStatus"></i>
                                                     </div>
@@ -69,13 +69,12 @@
         
     </div>
 </div>
-</div>
+</div> -->
 
-
-<div class="uk-container">
-    <ul class="uk-padding uk-padding-remove-bottom uk-text-lowercase uk-width-expand@m uk-inline uk-light"  uk-tab data-src="../storage/empresas/unnamed.png" uk-img>
-        <li class="uk-position-top-left"><a class="uk-link-reset uk-text-lowercase uk-light"  href="#">Convesras</a></li>
-        <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset uk-text-lowercase" href="#" >Mensagens</a></li>
+<div class="">
+    <ul class="uk-padding uk-padding-remove-bottom uk-text-lowercase uk-width-expand@m uk-inline"  uk-tab data-src="../storage/empresas/unnamed.png" uk-img>
+        <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset uk-text-lowercase"  href="#">Convesras</a></li>
+        <li class=" uk-position-top-left "><a class="uk-link-reset uk-text-lowercase" href="{{ route('user.profile') }}" ><span uk-icon="icon:  home;"></span></a></li>
         <li class="uk-position-top-right"><a class="uk-link-reset uk-text-lowercase" href="#" uk-icon="more-vertical"></a></li>
     </ul>
 
@@ -88,7 +87,9 @@
                             @foreach($users as $user)
                             <tbody>
                                 <tr>
-                                    <td><img class="uk-preserve-width uk-border-circle" src="../../storage/empresas/MO4WXiyMSwWNUFpyvnqZHfJI2imlSTckbytG8N7n.jpg" width="40" alt=""></td>
+                                    <td>
+                                    <a href="" class="uk-icon-button uk-label-default " uk-icon="user"></a>
+                                    </td>
                                     <td class="uk-table-link  uk-list-divider">
                                         <a class="uk-link-reset" href="{{ route('message.conversation', $user->id )}}">
                                         <!-- <a href="{{ route('message.show', $user->id )}}"> -->
@@ -109,7 +110,9 @@
         </li>
 
         <li >
-            <div>
+        <div class="uk-card uk-card-body  uk-text-center">
+            <a href="{{ route('user.profile') }}" class=" uk-button uk-button-default uk-border-rounded">Seguinte</a>
+        </div><!-- <div>
                 <div class="uk-padding-remove-top uk-light uk-width-expand@m">
                     <div class="uk-card uk-card-default uk-width-1-1@m">
                         <div class="uk-card-header uk-section-defaul">
@@ -119,7 +122,7 @@
                                 </div>
                                 <div class="uk-width-expand">
                                     <p class="uk-margin-remove-bottom"></p>
-                                    <!-- <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p> -->
+                                    <!-- <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p> >->
                                 </div>
                             </div>
                         </div>
@@ -167,7 +170,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
         </li>
 
         <li>

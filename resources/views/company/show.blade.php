@@ -36,16 +36,63 @@
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
 </div> -->
+<div class="uk-margin-medium-top uk-margin-remove uk-padding-remove">
+    <ul class="uk-flex-center" uk-tab>
+        <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon:  home;"></span></a></li>
+        <li class=""><a href="#">
+            <!-- <span class="uk-margin-small-right" uk-icon="icon:  bell;"></span> -->
+            <form class="uk-search">
+                <span class="uk-flex-center" uk-search-icon></span>
+                <input class="uk-search-input" type="search" placeholder="">
+            </form>
+        </a></li>
+        <li class=""><a href="#" uk-icon="more-vertical"></a></li>
+    </ul>
+</div>
 
 <div class="uk-container">
-    <div class="uk-section uk-section-small uk-tile-default">
-        <div class="uk-margin-remove uk-padding-remove">
-            <ul class="uk-margin-remove uk-padding-remove uk-flex-center " uk-tab>
+
+
+<ul class="uk-subnav uk-subnav-pill uk-flex-center uk-padding-remove uk-margin-remove">
+    <li class="uk-margin-remove-button">
+    <a   href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
+        <img class="uk-border-circle" style="width: 180px; height: 180px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
+    </a>
+    </li>
+    <li><a href="#">{{ $company->company_name }}
+        <p class="uk-heading-line uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m"></h4></span></p>
+            <p class=" uk-text-small uk-text-muted uk-padding-remove uk-margin-remove uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
+            <span class="uk-margin-small-right" uk-icon="icon:  receiver;"></span><a href="+258">{{ $company->phone}}</a></p>
+            <p class="uk-text-bolder uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">
+            <span class="uk-margin-small-right" uk-icon="icon: mail;"></span>{{ $company->user->email?? 'N/A' }} &nbsp</p>
+            <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">
+            <span class="uk-margin-small-right" uk-icon="icon: location;"></span>{{ $company->address }} </p>
+
+            <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->district }}
+                {{ $company->province }} </p><br>
+            <ul class=" uk-flex-center uk-padding-remove uk-margin-remove" >
+                <a class="uk-icon-button uk-button-default" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
+                <a href="https://www.facebook.com/" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
+                <a href="https://api.whatsapp.com/send?phone=258{{ $company->phone}}" class="uk-icon-button uk-margin-small-right" uk-icon="whatsapp"></a>
+                <a href="" class="uk-icon-button uk-button-default " uk-icon="world"></a>    
+            </ul>
+    </a></li>
+</ul>
+
+
+
+
+
+
+
+    <div class="uk-section uk-section-small uk-padding-remove uk-margin-remove uk-tile-default">
+        <!--div class="uk-margin-remove uk-padding-remove">
+             <ul class="uk-margin-remove uk-padding-remove uk-flex-center hidden uk-hidden@s " uk-tab>
                 
                     @if ($company->logo) 
                         <!-- <a class="uk-button "  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
-                            <img class="uk-border-circle" style="width: 100px; height: 100px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
-                        </a> -->
+                            <img class="uk-border-circle" style="width: 180px; height: 180px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
+                        </a> ->
                         <a class="uk-button "  href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
                             <div class="uk-card-defaultt uk-padding-remove uk-margin-remove uk-padding-remove-botton" style=" align-items: center;">
                                 <img class="uk-border-circle uk-image-possition" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />
@@ -57,12 +104,15 @@
                     @endif
 
                     <li>
-                    <p class="uk-heading-line uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m">{{ $company->company_name }}
+                    <p class="uk-heading-line uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m">
+                    {{ $company->company_name }}
                     </h4></span></p>
                     <p class=" uk-text-small uk-text-muted uk-padding-remove uk-margin-remove uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
-                        {{ $company->phone}}</p>
-                    <p class="uk-text-bolder uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->user->email?? 'N/A' }} &nbsp</p>
-                    <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->address }} </p>
+                    <span class="uk-margin-small-right" uk-icon="icon:  receiver;"></span><a href="+258">{{ $company->phone}}</a></p>
+                    <p class="uk-text-bolder uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">
+                    <span class="uk-margin-small-right" uk-icon="icon: mail;"></span>{{ $company->user->email?? 'N/A' }} &nbsp</p>
+                    <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">
+                    <span class="uk-margin-small-right" uk-icon="icon: location;"></span>{{ $company->address }} </p>
 
                     <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->district }}
                         {{ $company->province }} </p><br>
@@ -75,10 +125,10 @@
 
                     </li>
                  <br>   
-            </ul>
-        </div>
+            </ul> 
+        </div-->
 
-        <div class="uk-margin-medium-top">
+        <div class="uk-margin-medium-top uk-padding-remove">
             <ul class="uk-flex-center" uk-tab>
                 <li class="uk-active"><a href="#">Galeria</a></li>
                 <li><a href="#">Sobre</a></li>
@@ -120,7 +170,7 @@
                                     </label>
                                 </p>
                                 <p class="uk-margin-remove uk-align-right"><label
-                                        class="uk-label uk-label-danger uk-text-small">{{ $company->province .' | '. $company->district }}
+                                        class="uk-label uk-label-secondary uk-text-small"><span class="uk-margin-small-right" uk-icon="bookmark"></span>
                                     </label>
                                 </p>
                             </div>

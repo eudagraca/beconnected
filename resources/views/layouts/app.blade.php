@@ -41,17 +41,45 @@
                     <div class="uk-container">
                         <div class="uk-navbar" data-uk-navbar>
                             <div class="uk-navbar-left">
+
+
+                            
                                 <a class="uk-navbar-item uk-padding-top-remove uk-text-bolder uk-logo logocolor" href="/"  style="color: #000000; font-size:18px; font-family:'Comfortaa', cursive;">{{ config('app.name', 'Laravel') }}</a>
 
-                                <!--<ul class="uk-navbar-nav">
-                                    <li>
+                                <ul class="uk-navbar-nav uk-text-secondary" style="color: #000000;">
+                                <!-- <form class="uk-search uk-search-default uk-text-secondary" style="color: #000000;">
+                                    <span uk-search-icon></span>
+                                    <input class="uk-search-input" style="color: #000000;" type="search" placeholder="Search">
+                                </form> -->
+                                    <!-- <li>
                                         <a href="#"></a>
                                         <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
                                             <div class="uk-navbar-dropdown-grid uk-child-width-1-3" data-uk-grid>
-                                                
+                                                <form class="uk-search uk-search-default">
+                                                    <span uk-search-icon></span>
+                                                    <input class="uk-search-input" type="search" placeholder="Search">
+                                                </form>
                                         </div>
-                                    </li>
-                                </ul> -->
+                                    </li> -->
+
+                                        <div>
+                                            <a class="uk-navbar-toggle" href="#" uk-search-icon></a>
+                                            <div class="uk-navbar-dropdown" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+
+                                                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                                    <div class="uk-width-expand">
+                                                        <form class="uk-search uk-search-navbar uk-width-1-1">
+                                                            <input class="uk-search-input" type="search" placeholder="Search" autofocus>
+                                                        </form>
+                                                    </div>
+                                                    <div class="uk-width-auto">
+                                                        <a class="uk-navbar-dropdown-close" href="#" uk-close></a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                </ul>
                             </div>
                             <div class="uk-navbar-right">
                                 <ul class="uk-navbar-nav">

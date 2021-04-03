@@ -133,9 +133,17 @@
 }
 .chat-input {
     border: 1px solid lightgray;
-    border-top-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     padding: 8px 10px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.uk-span-chat {
+    padding-right: 100px;
+    margin-left: 1px;
+    width: 90%;
 }
 
 .radius {
@@ -210,9 +218,9 @@
         
 
 .chat-input-toolbar {
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-left: 0px solid gray;
+    border-right: 0px solid gray;
+    border-bottom: 0px solid gray;
     padding: 8px 10px;
 }
 

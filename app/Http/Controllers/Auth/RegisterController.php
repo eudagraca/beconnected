@@ -79,12 +79,6 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-
-             /* if($request->hasFile('logo') && $request->logo->isValid()) {
-                //$logoPath = $request->logo->store('Company');
-                $logoPath = $request->file('logo')->store('public/company');
-                $data['logo'] = $logoPath;
-                } */
                 
             $data = $request->only(
                 'company_name', 'phone','alternative_phone', 'classification',
@@ -121,6 +115,7 @@ class RegisterController extends Controller
             $role = Role::findByName($request->role);
             $user = User::create([
                 'name' => $request->name,
+                'last_name' => $request->last_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
@@ -131,9 +126,9 @@ class RegisterController extends Controller
 
     protected function register(Request $request)
     {
-        $provincia = Provincia::all();
         if ($request->has('query')) {
             if ($request->query('query') == "company") {
+                 $provincia = Provincia::all();
                 return view('auth.company_registration',['provincias_list' => $provincia,]);
             } elseif ($request->query('query') == "user") {
                 return view('auth.register');

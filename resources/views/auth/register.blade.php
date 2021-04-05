@@ -1,22 +1,27 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="uk-section uk-section-small uk-margin-remove-top uk-pedding-remove-top uk-flex uk-flex-center">
+
+@if($errors->any())
+    {{ implode('', $errors->all('<div>:message</div>')) }}
+@endif
+
+<div class="uk-section uk-section-small uk-margin-remove-top uk-padding-remove-top uk-flex uk-flex-center">
     <div class="uk-card  uk-width-1-1@s  uk-margin-large">
-        <h6 class="uk-card-title uk-card-header uk-margin-remove uk-pedding-remove uk-flex uk-flex-center uk-text-muted">Usuário</h6>
+        <!-- <h6 class="uk-card-title uk-card-header uk-margin-remove uk-padding-remove uk-flex uk-flex-center uk-text-muted">Criar conta</h6> -->
         <div class="uk-card-body">
+        <h6 class="uk-text-normal uk-heading uk-text-bolder uk-heading-divider">Criar conta</h6>
             <form method="POST" action="{{ route('register') }}" class="uk-form-stacked" uk-grid>
                 @csrf
                 <input value="user" type="text" name="role" hidden>
                 <div class=" uk-width-1-3@s">
-                    <label for="first_names" class="uk-form-label">
+                    <label for="name" class="uk-form-label">
                         {{ __('Primeiros nomes') }}
                     </label>
                     <div class="uk-form-control">
-                        <input class="uk-input @error('first_names') uk-form-danger @enderror" id="first_names"
-                            name="first_names" type="text" value="{{ old('first_names') }}" required
-                            autocomplete="first_names" autofocus>
-                        @error('first_names')
+                        <input class="uk-input @error('name') uk-form-danger @enderror" id="name"
+                            name="name" type="text" value="{{ old('name') }}" required
+                            autocomplete="name" autofocus>
+                        @error('name')
                         <span class="uk-text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -27,7 +32,7 @@
                     </label>
                     <div class="uk-form-control">
                         <input class="uk-input @error('last_name') uk-form-danger @enderror" id="last_name"
-                            name="last_name" type="text" value="{{ old('last_name') }}" required
+                            name="last_name" type="text" value="{{ old('last_name') }}"
                             autocomplete="last_name" autofocus>
                         @error('last_name')
                         <span class="uk-text-danger">{{ $message }}</span>

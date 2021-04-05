@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-3"></div>
             <div class="col-md-6">
-                <form class="" action="{{route('updatephoto', $iddetalhe->id)}}" action="/updatephoto/{{$iddetalhe->id}}" method="post" id="editimagesForm__{{$images->id}}" enctype="multipart/form-data">
+                <form class="" action="{{route('updatephoto', $iddetalhe->id)}}" action="/updatephoto/{{$iddetalhe->id}}" method="post" id="editimagesForm__{{$Image->id}}" enctype="multipart/form-data">
                 
                     {{ csrf_field() }}
 
@@ -20,15 +20,15 @@
                                     </div>
 
                                     <div class="uk-width-1-2@s">
-                                        <input value="{{ $images->src }}" type="text" name="src" hidden>
-                                        <input class="uk-input" name="name" type="text" value="{{ $images->name ?? old('name') }}" placeholder="Nome">
+                                        <input value="{{ $Image->src }}" type="text" name="src" hidden>
+                                        <input class="uk-input" name="name" type="text" value="{{ $Image->name ?? old('name') }}" placeholder="Nome">
                                     </div>
                                     <div class="uk-width-1-2@s">
-                                        <input class="uk-input"  name="price" type="text" value="{{ $images->price ?? old('price') }}" placeholder="Preço: 299 Mts">
+                                        <input class="uk-input"  name="price" type="text" value="{{ $Image->price ?? old('price') }}" placeholder="Preço: 299 Mts">
                                     </div>'
                                 
                                     <div class="uk-width-1-1@s">
-                                        <input class="uk-input" name="descrition" type="text" value="{{ $images->descrition ?? old('descrition') }}" placeholder="Descrição do artigo"> 
+                                        <input class="uk-input" name="descrition" type="text" value="{{ $Image->descrition ?? old('descrition') }}" placeholder="Descrição do artigo"> 
                                     <!-- 2 -->
                                     </div>
                                 </div>
@@ -37,12 +37,12 @@
                             <span class="uk-text-middle">Anexe a imagem soltando-a aqui</span>
                             <div uk-form-custom>
                                 <!-- <input type="file" multiple> -->
-                                <input type="file" class="form-control input-file" name="photos"  value="{{ $images->src ?? old('photos') }}"/>
+                                <input type="file" class="form-control input-file" name="photos"  value="{{ $Image->src ?? old('photos') }}"/>
                                 <span class="uk-link">anexar images</span>
                             </div>
                         </div>
                         <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
-                    <input type="submit" class="uk-button radius uk-align-right uk-button-primary" value="Actualizar" form="editimagesForm__{{$images->id}}" />
+                    <input type="submit" class="uk-button radius uk-align-right uk-button-primary" value="Actualizar" form="editimagesForm__{{$Image->id}}" />
                 </form>
             </div>
         </div>

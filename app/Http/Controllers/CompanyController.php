@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use App\Company;
+use App\ImageDetails;
+use App\Image;
 use App\Provincia;
 use App\User;
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ class CompanyController extends Controller
         $this->repository = $company;
 
         $this->middleware(['auth'])->except([
-             'index', 'show', 'search', 'store', 'index1', 'login', 'create', 'autocomplete'
+             'index', 'show', 'search', 'store', 'searchall', 'index1', 'login', 'create', 'autocomplete'
           ]);
     }
 
@@ -83,10 +85,10 @@ class CompanyController extends Controller
         $company = $this->repository->where('user_id', $idCompany)->first();
         if (!$company)
             return redirect()->back();
-        $images = DB::table('Images')
-            ->join('image__details', function ($join) use ($Companyid) {
-                $join->on('Images.id', '=', 'image__details.Image_id')
-                    ->where('Images.company_id', '=', $Companyid);
+        $images = DB::table('images')
+            ->join('image_details', function ($join) use ($Companyid) {
+                $join->on('images.id', '=', 'image_details.image_id')
+                    ->where('images.company_id', '=', $Companyid);
             })
             ->get();
         $users = User::where('id', '!=', Auth::id())->get();
@@ -158,13 +160,12 @@ class CompanyController extends Controller
 
     public function updatelogo(Request $request, $id)
     {
-
         if(!$company = $this->repository->find($id));
             if($company->logo && Storage::exists($company->logo)) {
                 Storage::delete($company->logo);
 
-        $logopath = $request->file('logo')->store('logo');
-        $data['logo'] = $logopath;
+                $logopath = $request->file('logo')->store('logo');
+                $data['logo'] = $logopath;
 
             }
     $company->update($data);
@@ -183,6 +184,19 @@ class CompanyController extends Controller
         //
     }
 
+    public function searchall(Request $request)
+    {
+       
+      $images = Image::where('name','like', '%'.$request->filter.'%')->get();
+      
+     // return $images[0]->imageDetail->src;
+      if(!$images[0]->imageDetail->src){
+          return redirect()->back();
+      }
+
+      return view('company.filterall', compact('images'));
+   }
+
     public function search(Request $request)
     {  
        $consulta = Company::where(function($query) use($request) {
@@ -200,9 +214,12 @@ class CompanyController extends Controller
       })
       ->paginate(20);
 
-      $empresas = $this->repository->search($request->filter);
-      return view('company.filter_company',[
-       'empresas' => $consulta,
-      ]);
+      if( $consulta->count()){
+        $empresas = $this->repository->search($request->filter);
+        return view('company.filter_company',[
+        'empresas' => $consulta,
+        ]);
+        }
+      return redirect()->back()->withErrors(['msg', 'ainda não temhos registos para sua busca. busque outa opação']);
    }
 }

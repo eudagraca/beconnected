@@ -35,9 +35,10 @@ class LoginController extends Controller
         $user->save();
         if ($user->company) { // do your magic here
             return redirect()->route('user.profile');
+        }elseif($user->user){
+            return redirect()->route('user.profile'); 
         }
-
-        return redirect('/home');
+        return redirect()->back();
     }
 
     /**

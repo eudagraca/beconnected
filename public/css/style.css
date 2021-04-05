@@ -33,6 +33,19 @@
     box-sizing: border-box;
 }
 
+.uk-be{
+    background-image: linear-gradient(to right, #2ccd27,#378b72);
+    border: none;
+    color: #FFF;
+    padding: 4% 23%;
+    border-radius: 12px;
+  }
+
+.uk-beconnected {
+    font-size: 16px;
+    font-family: 'Comfortaa',cursive;
+}
+
 .button-top{
     position: relative;
     margin-top: -100px;

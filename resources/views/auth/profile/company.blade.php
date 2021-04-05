@@ -2,11 +2,11 @@
 @section('content')
 
 
-<div class="">
+<div class="uk-container">
     <ul class="uk-padding uk-padding-remove-bottom uk-text-lowercase uk-width-expand@m uk-inline"  uk-tab data-src="../storage/empresas/unnamed.png" uk-img>
-    <li class=" uk-position-top-left "><a class="uk-link-reset uk-text-lowercase" href="{{ route('user.profile') }}" ><span uk-icon="icon:  home;"></span></a></li>    
-    <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset uk-text-lowercase"  href="#">Convesras</a></li>
-        <li class="uk-position-top-right"><a class="uk-link-reset uk-text-lowercase" href="#" uk-icon="more-vertical"></a></li>
+        <li class=" uk-position-top-left "><a class="uk-link-reset uk-text-lowercase" href="{{ route('user.profile') }}" ><span uk-icon="icon:  home;"></span></a></li>    
+        <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset uk-text-lowercase"  href="#">Convesras</a></li>
+        <!-- <li class="uk-position-top-right"><a class="uk-link-reset uk-text-lowercase" href="#" uk-icon="more-vertical"></a></li> -->
     </ul>
 
     <ul class="uk-switcher">
@@ -79,7 +79,6 @@
                                                 </div>
                                             </div>  
                                             
-                                            
                                             </p>
                                         </div>
                                         <div class="uk-modal-footer uk-text-right">
@@ -96,7 +95,7 @@
                                     style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="Logo" />
                             @endif
                                 
-                            <li><a href="#">{{ $company->company_name }}
+                            <li class="uk-panel uk-text-truncate"><a href="#">{{ $company->company_name }}
                             <p class="uk-heading-line uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m">
                             <!-- <span class="uk-margin-small-right" uk-icon="icon:  home;"></span> -->
                             </h4></span></p>

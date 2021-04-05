@@ -43,39 +43,49 @@
     </div>
 </div> -->
 
+<div class="uk-section uk-section-small uk-section-muted ">
+    <div class="uk-container">
+        <div class="uk-grid-small  uk-text-center" uk-grid>
 
-<table class="uk-table uk-table-middle uk-table-divider">
-@foreach ($empresas as $company)
-    <thead>
-        <tr>
-            <th class="uk-width-small">Perfil</th>
-            <th>Nome</th>
-            <th>Endereço</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <a href="{{ route('company.show', $company) }}">
-            <td>
-                @if ($company->logo) 
-                    <div >
-                    <a   href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}">
-                        <img class="uk-border-circle" style="width: 80px; height: 80px; background-color: rgba(240, 248, 255, 0)"  src="{{ url("storage/{$company->logo}") }}" alt="logo">
-                    </a>
-                    </div>
-                    @else
-                        <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
-                        <canvas width="300" height="100"></canvas>
-                    @endif
-                </td>
-            <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->company_name }}</a></td>
-            <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->address }}</a></td>
-        
-            </a>
-        </tr>
-    </tbody>
-    @endforeach
-</table>
+            <table class="uk-table uk-table-justify uk-table-striped uk-table-divider">
+            @if($errors->any())
+            <h4>{{$errors->first()}}</h4>
+            Session::has('msg')
+            @endif
+            @foreach ($empresas as $company)
+                <thead>
+                    <tr>
+                        <th class="uk-width-small">Perfil</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class=""> 
+                    <a href="{{ route('company.show', $company) }}">
+                        <td>
+                            @if ($company->logo) 
+                                <div >
+                                <a   href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}">
+                                    <img class="uk-border-circle" style="width: 80px; height: 80px; background-color: rgba(240, 248, 255, 0)"  src="{{ url("storage/{$company->logo}") }}" alt="logo">
+                                </a>
+                                </div>
+                                @else
+                                    <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+                                    <canvas width="300" height="100"></canvas>
+                                @endif
+                            </td>
+                        <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->company_name }}</a></td>
+                        <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->address }}</a></td>
+                    
+                        </a>
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
+        </div>
+    </div>
+</div>
 
 <!-- <div class="uk-container">
     <!-- @if(Session::has('Ramo')) ->

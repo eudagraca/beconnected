@@ -23,10 +23,10 @@ class UserController extends Controller
             $provincia = Provincia::all();
             $id =  Auth::user()->id;
             $id_company=Auth::user()->company->id;
-            $images = DB::table('Images')
-            ->join('image__details', function ($join) use ($id_company) {
-                $join->on('Images.id', '=', 'image__details.Image_id')
-                    ->where('Images.company_id', '=', $id_company);
+            $images = DB::table('images')
+            ->join('image_details', function ($join) use ($id_company) {
+                $join->on('images.id', '=', 'image_details.Image_id')
+                    ->where('images.company_id', '=', $id_company);
             })
             ->get();
             $users = User::where('id', '!=', Auth::id())->get();

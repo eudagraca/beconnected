@@ -67,6 +67,15 @@ Route::get('company/search','CompanyController@search')
 Route::post('company/search', 'CompanyController@search')
     ->name('company.search');
 
+
+Route::get('searchall', 'CompanyController@searchall')
+    ->name('searchall');
+
+Route::get('company/searchall','CompanyController@searchall')
+    ->name('company.searchall');
+
+Route::post('company/searchall', 'CompanyController@searchall')
+    ->name('company.searchall');
 //Image resource
 Route::post('ImageForm/{id}', 'ImagesController@ImageForm')
     ->name('form.ImageForm')

@@ -36,22 +36,21 @@
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
 </div> -->
-<div class="uk-margin-medium-top uk-margin-remove uk-padding-remove">
+<!-- <div class="uk-margin-medium-top uk-margin-remove uk-padding-remove">
     <ul class="uk-flex-center" uk-tab>
         <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon:  home;"></span></a></li>
         <li class=""><a href="#">
-            <!-- <span class="uk-margin-small-right" uk-icon="icon:  bell;"></span> -->
-            <form class="uk-search">
+            <!-- <span class="uk-margin-small-right" uk-icon="icon:  bell;"></span> ->
+            <!-- <form class="uk-search">
                 <span class="uk-flex-center" uk-search-icon></span>
                 <input class="uk-search-input" type="search" placeholder="">
-            </form>
+            </form> ->
         </a></li>
         <li class=""><a href="#" uk-icon="more-vertical"></a></li>
     </ul>
-</div>
+</div> -->
 
 <div class="uk-container">
-
 
 <ul class="uk-subnav uk-subnav-pill uk-flex-center uk-padding-remove uk-margin-remove">
     <li class="uk-margin-remove-button">
@@ -59,9 +58,9 @@
         <img class="uk-border-circle" style="width: 180px; height: 180px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
     </a>
     </li>
-    <li><a href="#">{{ $company->company_name }}
+    <li class="uk-text-truncate"><a href="#">{{ $company->company_name }}
         <p class="uk-heading-line uk-text-small"><span><h4 class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove uk-width-1-1@m"></h4></span></p>
-            <p class=" uk-text-small uk-text-muted uk-padding-remove uk-margin-remove uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
+            <p class=" uk-text-small uk-text-muted uk-padding-large uk-padding-remove uk-margin-remove uk-text-bold uk-text-left uk-margin-small-top uk-width-1-1@m">
             <span class="uk-margin-small-right" uk-icon="icon:  receiver;"></span><a href="+258">{{ $company->phone}}</a></p>
             <p class="uk-text-bolder uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">
             <span class="uk-margin-small-right" uk-icon="icon: mail;"></span>{{ $company->user->email?? 'N/A' }} &nbsp</p>
@@ -70,13 +69,14 @@
 
             <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->district }}
                 {{ $company->province }} </p><br>
-            <ul class=" uk-flex-center uk-padding-remove uk-margin-remove" >
+            <!-- <ul class=" uk-flex-center uk-padding-remove uk-margin-remove" >
                 <a class="uk-icon-button uk-button-default" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
                 <a href="https://www.facebook.com/" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
                 <a href="https://api.whatsapp.com/send?phone=258{{ $company->phone}}" class="uk-icon-button uk-margin-small-right" uk-icon="whatsapp"></a>
                 <a href="" class="uk-icon-button uk-button-default " uk-icon="world"></a>    
-            </ul>
-    </a></li>
+            </ul> -->
+        </a>
+    </li>
 </ul>
 
 
@@ -192,7 +192,7 @@
                                         <img src="images/photo.jpg" alt="">
                                     </div>
                                     <div class="uk-card-body">
-                                        <h3 class="uk-card-title uk-text-bold">
+                                        <h3 class="uk-card-title">
                                             {{ $company->company_name}}</h3>
                                             <p>{{ $company->about_company }}</p>                                                
                                     </div>
@@ -204,7 +204,7 @@
                                         <img src="images/dark.jpg" alt="">
                                     </div>
                                     <div class="uk-card-body">
-                                        <h3 class="uk-card-title uk-text-bold">{{ $company->segment_area}}</h3>
+                                        <h3 class="uk-card-title">{{ $company->segment_area}}</h3>
                                         <p>{{ $company->main_services }}</p>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                         <img src="images/photo.jpg" alt="">
                                     </div>
                                     <div class="uk-card-body">
-                                        <h3 class="uk-card-title uk-text-bold">
+                                        <h3 class="uk-card-title">
                                             {{ $company->company_name}}</h3>
                                             <p>{{ $company->about_company }}</p>  
                                     </div>

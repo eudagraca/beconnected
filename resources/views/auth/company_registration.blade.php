@@ -2,10 +2,10 @@
 
 @section('content')
 {{--  @dd($errors->all())  --}}
-<div class="uk-section uk-section-small  uk-flex uk-flex-center">
+<div class="uk-section uk-section-small uk-margin-remove-top uk-padding-remove-top  uk-flex uk-flex-center">
     <div class="uk-card uk-width-1-1@s  uk-margin-large">
-        <h6 class="uk-card-title uk-card-header uk-text-bolder uk-margin-remove-top uk-text-muted">Registar empresa
-        </h6>
+        <!-- <h6 class="uk-card-title uk-card-header uk-text-bolder uk-margin-remove uk-padding-remove-right uk-padding-remove uk-text-muted">Registar empresa
+        </h6> -->
         <div class="uk-card-body">
             <form enctype="multipart/form-data" method="post" action="{{ route('register', ['query' => 'company']) }}" class="uk-form-stacked">
             @csrf
@@ -13,8 +13,8 @@
                 <input value="company" type="text" name="role" hidden>
                 <div class="uk-margin-remove-top" id="dados-da-empresa" uk-grid>
                     <div class="uk-margin-bottom uk-margin-remove-top uk-width-1-1@s">
-                        <h6 class="uk-text-normal uk-heading uk-text-bolder uk-heading-divider">Dados
-                            da empresa</h6>
+                        <h6 class="uk-text-normal uk-heading uk-text-bolder uk-heading-divider">Registar
+                             empresa</h6>
                     </div>
                     <div class="uk-margin-bottom uk-margin-remove-top uk-width-1-3@s">
                         <label for="company_name" class="uk-form-label">
@@ -273,7 +273,7 @@
                             <span class="uk-text-middle">Anexe um logotipo soltando-o aqui </span> <span
                                 class="uk-text-danger">*</span>
                             <div uk-form-custom>
-                                <input type="file" required name="logo" accept="image/*">
+                                <input type="file"  name="logo" accept="image/*">
                                 <span class="uk-link">Logotipo</span>
                             </div>
                         </div>
@@ -284,7 +284,7 @@
                                 <span class="uk-text-middle">Agora anexe o Banner soltando-o aqui</span> <span
                                 class="uk-text-danger">*</span>
                             <div uk-form-custom>
-                                <input type="file" name="banner" required accept="image/*">
+                                <input type="file" name="banner" accept="image/*">
                                 <span class="uk-link">Banner da Empresa</span>
                             </div>
                         </div>

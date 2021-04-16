@@ -10,9 +10,9 @@
         <!-- <h6 class="uk-card-title uk-card-header uk-margin-remove uk-padding-remove uk-flex uk-flex-center uk-text-muted">Criar conta</h6> -->
         <div class="uk-card-body">
         <h6 class="uk-text-normal uk-heading uk-text-bolder uk-heading-divider">Criar conta</h6>
-            <form method="POST" action="{{ route('register') }}" class="uk-form-stacked" enctype="multipart/form-data" uk-grid>
+            <form method="POST" action="{{ route('registeradmin') }}" class="uk-form-stacked" enctype="multipart/form-data" uk-grid>
                 @csrf
-                <input value="user" type="text" name="role" hidden>
+                <input value="super-admin" type="text" name="role" hidden>
 
                 <div class="js-upload uk-placeholder uk-text-center uk-margin-bottom uk-margin-medium-left uk-margin-remove-top uk-width-1-1@s">
                     <div class="uk-form-control">

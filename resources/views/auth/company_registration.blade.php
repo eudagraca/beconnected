@@ -43,7 +43,7 @@
                     </div>
                     <div class="uk-margin-bottom uk-margin-remove-top uk-width-1-3@s">
                         <label for="phone" class="uk-form-label">
-                            {{ __('Telefone') }} <span class="uk-text-danger">*</span>
+                            {{ __('Contacto com whatsApp da empresa') }} <span class="uk-text-danger">*</span>
                         </label>
                         <div class="uk-form-control">
                             <input class="uk-input @error('phone') uk-form-danger @enderror" id="phone" name="phone"
@@ -73,40 +73,70 @@
                         <div class="uk-form-control">
                             <select class="uk-select" name="segment_area" id="segment_area" required autofocus>
                                 <option disabled selected>Seleccione a área</option>
-                                <option name="" value="">Voce esta em busca de?</option>
+                                <option name="segment_area" value="Advogados">Advogados</option>
+                                <option name="segment_area" value="Agências de Turismo">Agências de Turismo</option>
+                                <option name="segment_area" value="Agências de Viagens">Agências de Viagens</option>
+                                <option name="segment_area" value="Agências de Publicidade">Agências de Publicidade</option>
+                                <option name="segment_area" value="Alumínio e vidro">Alumínio e vidro</option>
+                                <option name="segment_area" value="Arquitectos e Projectos">Arquitectos e Projectos</option>
+                                <option name="segment_area" value="Automóveis">Automóveis</option>
+                                <option name="segment_area" value="Automóveis e Peças">Automóveis e Peças</option>
+                                <option name="segment_area" value="Automóveis Reparação">Automóveis Reparação</option>
+                                <option name="segment_area" value="Bate chapa">Bate chapa</option>
+                                <option name="segment_area" value="Barres & bebidas ">Barres & Bebidas</option>
+                                <option name="segment_area" value="Carpitarias e Mercenarias">Carpitarias e Mercenarias</option>
+                                <option name="segment_area" value="Casas">Casas</option>
                                 <option name="segment_area" value="Clinica">Clinica</option>
+                                <option name="segment_area" value="Clinica Dentárias">Clinica Dentárias</option>
+                                <option name="segment_area" value="Clinica Veterinárias">Clinica Veterinárias</option>
+                                <option name="segment_area" value="Consultores">Consultores</option>
+                                <option name="segment_area" value="Consultoria Empresarial">Consultoria Empresarial</option>
+                                <option name="segment_area" value="Contabilidade">Contabilidade</option>
+                                <option name="segment_area" value="Despachantes Aduaneiros">Despachantes Aduaneiros</option>
+                                <option name="segment_area" value="Escola de Musica & Dança">Escola de Musica & Dança</option>
+                                <option name="segment_area" value="Escola de Lingua">Escola de Lingua</option>
                                 <option name="segment_area" value="Farmacia">Farmacia</option>
-                                <option name="segment_area" value="Doces de salgados">Doces e salgados</option>
-                                <option name="segment_area" value="Servicos de Cuntring">Servicos de Catring</option>
-                                <option name="segment_area" value="Consultoria de advogacia">Consultoria de advogacia</option>
-                                <option name="segment_area" value="Consultoria de Contabilidade">Consultoria de Contabilidade</option>
-                                <option name="segment_area" value="Consultoria de Agronegocio">Consultoria de Agronegocio</option>
-                                <option name="segment_area" value="Aluminio e vidro">Aluminio e vidro</option>
-                                <option name="segment_area" value="loja de Roupa Femenina">loja de Roupa Femenina</option>
-                                <option name="segment_area" value="loja de Roupa Masculina">loja de Roupa Masculina</option>
-                                <option name="segment_area" value="loja de Roupa M/F">loja de Roupa M/F</option>
-                                <option name="segment_area" value="loja de Calcado Femenino">loja de Calcado Femenino</option>
-                                <option name="segment_area" value="loja de Calcado Masculino">loja de Calcado Masculino</option>
+                                <option name="segment_area" value="Ferragens">Ferragens</option>
+                                <option name="segment_area" value="Ginásios">Ginásios</option>
+                                <option name="segment_area" value="Hoteis">Hotéis</option>
+                                <option name="segment_area" value="Hoteis, Pousadas">Hotéis, Pousadas</option>
+                                <option name="segment_area" value="Imobiliária">Imobiliária</option>
+                                <option name="segment_area" value="Lavandarias">Lavandarias</option>
+                                <option name="segment_area" value="loja de Roupa Femenina">loja de Roupa F</option>
+                                <option name="segment_area" value="loja de Roupa Masculina">loja de Roupa M</option>
+                                <option name="segment_area" value="loja de Roupa M/F">loja de Roupa M&F</option>
+                                <option name="segment_area" value="loja de Calcado Femenino">loja de Calcado F</option>
+                                <option name="segment_area" value="loja de Calcado Masculino">loja de Calcado M</option>
                                 <option name="segment_area" value="loja de Calcado M/F">loja de Calcado M/F</option>
-                                <option name="segment_area" value="Salao de cabelo Femenino">Salao de cabelo Femenino</option>
-                                <option name="segment_area" value="Salao de cabelo Masculino">Salao de cabelo Masculino</option>
-                                <option name="segment_area" value="Hotel">Hotel</option>
-                                <option name="segment_area" value="Pensao">Pensao</option>
-                                <option name="segment_area" value="Construção Civil">Construção Civil</option>
-                                <option name="segment_area" value="Doces de salgados">Doces de salgados</option>
-                                <option name="segment_area" value="Transporte">Transporte</option>
-                                <option name="segment_area" value="Oficina">Oficina</option>
-                                <option name="segment_area" value="Micro Banco">Micro Banco</option>
-                                <option name="segment_area" value="Agricola">Agro Negocio</option>
-                                <option name="segment_area" value="Pecuaria">Pecuaria</option>
-                                <option name="segment_area" value="Ferragem">Ferragem</option>
-                                <option name="segment_area" value="Borracharia">Borracharia</option>
-                                <option name="segment_area" value="Agencia de viagem">Agencia de viagem</option>
-                                <option name="segment_area" value="Restaurante">Restaurante</option>
+                                <option name="segment_area" value="loja de equipamento de cozinha">loja de e equipamento de cozinha</option>
+                                <option name="segment_area" value="loja de equipamento e material de escritorio">loja de e equipamento & material de escritorio</option>
+                                <option name="segment_area" value="loja de equipamento para limpeza">loja de e equipamento para limpeza</option>
+                                <option name="segment_area" value="loja de equipamento de cozinha">loja de e equipamento de cozinha</option>
+                                <option name="segment_area" value="loja de Roupas para Crianças">loja de Roupas para Crianças</option>
+                                <option name="segment_area" value="loja de Móveis Mobílias">loja de Móveis & Mobílias</option>
+                                <option name="segment_area" value="loja de Perfumes e Cosméticos">loja de Perfumes e Cosméticos</option>
+                                <option name="segment_area" value="Óptica">Óptica</option>
+                                <option name="segment_area" value="Parafusos e Porcas">Parafusos e Porcas</option>
+                                <option name="segment_area" value="Pensões">Pensões</option>
+                                <option name="segment_area" value="Pintores de Construção civil">Pintores de Construção civil</option>
+                                <option name="segment_area" value="Pizzerias">Pizzerias</option>
+                                <option name="segment_area" value="Pneus & Equipamentos">Pneus & Equipamentos</option>
+                                <option name="segment_area" value="Recauchutagem & Vulcanizaçao">Recauchutagem & Vulcanizaçao</option>
+                                <option name="segment_area" value="Rent Car">Rent Car</option>
+                                <option name="segment_area" value="Restaurantes">Restaurantes</option>
+                                <option name="segment_area" value="Segurança">Segurança</option>
+                                <option name="segment_area" value="Sistemas de segurança Electrónica">Sistemas de segurança Electrónica</option>
+                                <option name="segment_area" value="Supermecados">Supermecados</option>
+                                <option name="segment_area" value="Talhos">Talhos</option>
+                                <option name="segment_area" value="Táxis">Táxis</option>
+                                <option name="segment_area" value="Técnicos de contas">Técnicos de contas</option>
+                                <option name="segment_area" value="Transporte de carga">Transporte de carga</option>
+                                <option name="segment_area" value="Transporte de Mercadorias">Transporte de Mercadorias</option>
+                                <option name="segment_area" value="Transporte de Passageiros">Transporte de Passageiros</option>
+                                <option name="segment_area" value="Turismo Empreendimentos">Turismo Empreendimentos</option>
+                                <option name="segment_area" value="Agricola">Agro negócio</option>
                                 <option name="segment_area" value="Ornamentação de Eventos">Ornamentação de Eventos</option>
-                                <option name="segment_area" value="Moda">Moda</option>
-                                <option name="segment_area" value="Botique">Botique</option>
-                                <option value="Comercial">Comercial</option>
+                                <option name="segment_area" value="Outros">Outros</option> 
                             </select>
                             @error('alternative_phone')
                             <span class="uk-text-danger">{{ $message }}</span>
@@ -230,7 +260,7 @@
                     </div>
                     <div class="uk-width-1-2@s uk-margin-remove-top uk-margin-bottom">
                         <label for="main_services" class="uk-form-label">
-                            {{ __('Principais serviços') }} <span class="uk-text-danger">*</span>
+                            {{ __('Principais serviços ou produtos') }} <span class="uk-text-danger">*</span>
                         </label>
                         <div class="uk-form-control">
                             <textarea class="uk-textarea @error('main_services') uk-form-danger @enderror"
@@ -273,13 +303,13 @@
                             <span class="uk-text-middle">Anexe um logotipo soltando-o aqui </span> <span
                                 class="uk-text-danger">*</span>
                             <div uk-form-custom>
-                                <input type="file"  name="logo" accept="image/*">
+                                <input type="file"  name="logo" required accept="image/*">
                                 <span class="uk-link">Logotipo</span>
                             </div>
                         </div>
 
 
-                        <div class="uk-form-control">
+                        <!-- <div class="uk-form-control">
                             <span uk-icon="icon: cloud-upload"></span>
                                 <span class="uk-text-middle">Agora anexe o Banner soltando-o aqui</span> <span
                                 class="uk-text-danger">*</span>
@@ -287,7 +317,7 @@
                                 <input type="file" name="banner" accept="image/*">
                                 <span class="uk-link">Banner da Empresa</span>
                             </div>
-                        </div>
+                        </div> -->
 
                         
                     </div>

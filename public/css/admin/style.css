@@ -22,7 +22,7 @@ html, body{
     padding-top: 2px;
 }
 .uk-navbar-container {
-    background-color: #1e87f0 !important;
+    background-color: #32d296 !important;
 }
 .user > #name {
     font-size: 22px;
@@ -123,7 +123,7 @@ html, body{
 /*this can also be transparent*/}
 ::-webkit-scrollbar-thumb:vertical {
     width: 1px;
-    background-color: #1e87f0;
+    background-color: #32d296;
     border-top: 4px solid #f0f0f0;
     border-right: 3px solid #f0f0f0;
     border-bottom: 4px solid #f0f0f0;
@@ -131,9 +131,9 @@ html, body{
 }
 ::selection {
   background-color: #d1eefe;
-  color: #1e87f0;
+  color: #32d296;
 }
 ::moz-selection {
  background-color: #d1eefe;
- color: #1e87f0;
+ color: #32d296;
 }

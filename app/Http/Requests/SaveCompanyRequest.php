@@ -40,7 +40,8 @@ class SaveCompanyRequest extends FormRequest
             'segment_area' => 'string|required_if:role,company|max:255',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             //normal user
-            'last_name' => 'string|required_if:role,user|max:255',
+            /* 'last_name' => 'string|required_if:role,user|max:255', */
+            'perfil' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:11048',
 
         ];
     }

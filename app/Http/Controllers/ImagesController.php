@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Concurso;
 use App\ImageDetails;
 use App\Image;
 use App\Provincia;
@@ -167,8 +168,11 @@ class ImagesController extends Controller
             })
             ->get();
             $users = User::where('id', '!=', Auth::id())->get();
+            $Concurso = Concurso::all();
+            $MeuConcurso = DB::table('concursos')
+                    ->where('company_id', '=', $id_company)->get();
 
-            return view('auth.profile.company', ['image'=> $imagesedit, 'provincias_list' => $provincia, 'users'=>$users] )->with('company', Auth::user()->company, ['image'=> $Image]);
+            return view('auth.profile.company', ['image'=> $imagesedit, 'provincias_list' => $provincia, 'MeuConcurso'=>$MeuConcurso, 'Concurso'=>$Concurso, 'users'=>$users] )->with('company', Auth::user()->company, ['image'=> $Image]);
         
         /* return redirect()->back()->back(); */
     }

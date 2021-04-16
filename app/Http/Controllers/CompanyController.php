@@ -5,9 +5,11 @@ use App\ImageDetails;
 use App\Image;
 use App\Provincia;
 use App\User;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
@@ -38,7 +40,7 @@ class CompanyController extends Controller
         /* $companies = Company::all();
         return view('home', compact('companies')); */
 
-        $company = Company::all();
+        $company = Company::all()->where('status', 1);
         $provincia = Provincia::all();
         return view('company.index', [
             'empresas' => $company, 'provincias_list' => $provincia,
@@ -93,24 +95,6 @@ class CompanyController extends Controller
             ->get();
         $users = User::where('id', '!=', Auth::id())->get();
         return view('company.show', ['image'=> $images, 'users'=>$users])->with('company', $id, ['image'=> $images]);
-       /*  $company = $this->repository->where('id', $id)->first();
-        $company->id;
-        if (!$company)
-            return redirect()->back();
-        $images = DB::table('Images')
-            ->join('image__details', function ($join) use ($id) {
-                $join->on('Images.id', '=', 'image__details.Image_id')
-                    ->where('Images.company_id', '=', $id);
-            })
-            ->get(); */
-
-        $users = User::where('id', '!=', Auth::id())->get();
-
-        return view('company.show', ['empresa' => $company, 'users'=>$users, 'image'=> $images]);
-
-        /* return view('empresa.show', [
-            'empresa' => $company, 'image'=> $images, $this->data
-        ]);  */
     }
 
     /**
@@ -143,6 +127,24 @@ class CompanyController extends Controller
     $data=$request->all();
         
     $company->update($data);
+    return redirect()->back();
+    }
+
+    public function updatelock(Request $request, $id)
+    {
+    if(!$company = $this->repository->find($id));
+        $lock = '0';
+        $data['status'] = $lock;
+        $company->update($data);
+    return redirect()->back();
+    }
+
+    public function updateunlock(Request $request, $id)
+    {
+    if(!$company = $this->repository->find($id));
+        $lock = '1';
+        $data['status'] = $lock;
+        $company->update($data);
     return redirect()->back();
     }
 
@@ -184,21 +186,27 @@ class CompanyController extends Controller
         //
     }
 
+    public function back()
+    {
+        return redirect()->back();
+    }
+
     public function searchall(Request $request)
     {
-       
-      $images = Image::where('name','like', '%'.$request->filter.'%')->get();
-      
-     // return $images[0]->imageDetail->src;
-      if(!$images[0]->imageDetail->src){
-          return redirect()->back();
-      }
-
-      return view('company.filterall', compact('images'));
-   }
+    $images = Image::where('name','like', '%'.$request->filter.'%')->get();
+        if(!$images){
+            return redirect()->back();
+        }
+        return view('company.filterall', compact('images'));
+    }
 
     public function search(Request $request)
     {  
+        if(!$request->provincia_id){
+            return redirect()->back();
+        }elseif(!$request->distrito_id){
+            return redirect()->back();
+        }
        $consulta = Company::where(function($query) use($request) {
            if($request->has('ramo'))
                $filter = $request->ramo; 
@@ -210,7 +218,9 @@ class CompanyController extends Controller
   
             if($request->has('provincia_id'))
                $provincia_id = $request->provincia_id;
-               $query->where('provincia_id', "like", "%{$provincia_id}%"); 
+               $query->where('provincia_id', "like", "%{$provincia_id}%");
+
+               $query->where('status', 1);
       })
       ->paginate(20);
 
@@ -220,6 +230,9 @@ class CompanyController extends Controller
         'empresas' => $consulta,
         ]);
         }
-      return redirect()->back()->withErrors(['msg', 'ainda não temhos registos para sua busca. busque outa opação']);
+        return view('company.filter_company',[
+            'empresas' => $consulta,
+            ]);
+      //return redirect()->back()->withErrors(['msg', 'ainda não temhos registos para sua busca. busque outa opação']);
    }
 }

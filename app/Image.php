@@ -12,4 +12,11 @@ class Image extends Model
     public function imageDetail() {
         return $this->hasOne(ImageDetails::class);
     }
+
+    /* public function company () {
+        return $this->hasMany(Company::class);
+    } */
+    public function company () {
+        return $this->belongsTo(Company::class);
+    }
 }

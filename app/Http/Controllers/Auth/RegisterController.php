@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -53,13 +54,26 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+/*     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['string'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+    } */
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ], [
+            'email.required' => 'The email is required.',
+            'email.email' => 'The email needs to have a valid format.',
+            'email.exists' => 'The email is not registered in the system.',
+       ]);
     }
 
     /**
@@ -70,7 +84,6 @@ class RegisterController extends Controller
      */
     protected function create(SaveCompanyRequest $request)
     {
-
         $provincia = Provincia::all();
         if ($request->role == 'company') {
             $role = Role::findByName($request->role);
@@ -79,6 +92,10 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
+            $email=$user->email;
+            $password=$request->password;
+            Session::put('empresa', $password);
+            Session::put('email', $email);
                 
             $data = $request->only(
                 'company_name', 'phone','alternative_phone', 'classification',
@@ -89,8 +106,8 @@ class RegisterController extends Controller
             $logopath = $request->file('logo')->store('Company');
             $data['logo'] = $logopath;
 
-            $logopat = $request->file('banner')->store('Company');
-            $data['banner'] = $logopat;
+            /* $logopat = $request->file('banner')->store('Company');
+            $data['banner'] = $logopat; */
 
             
             $company = Company::create($data);
@@ -113,12 +130,40 @@ class RegisterController extends Controller
             return  redirect(route('login'))->with('success', 'Seja bem vindo');
         } elseif ($request->role == 'user') {
             $role = Role::findByName($request->role);
-            $user = User::create([
+
+            $user = $request->only(
+                'name', 'last_name','email');
+            $user['password'] = Hash::make($request->password);
+            $logopath = $request->file('perfil')->store('logo');
+            $user['perfil'] = $logopath; 
+            $user = User::create($user);
+            $email=$user->email;
+            $password=$request->password;
+            Session::put('empresa', $password);
+            Session::put('email', $email);
+            /* $user = User::create([
                 'name' => $request->name,
-                'last_name' => $request->last_name,
+                /* 'last_name' => $request->last_name, 
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-            ]);
+                $logopath = $request->file('perfil')->store('logo'),
+            $user['perfil'] = $logopath, 
+            ]); */
+            $user->assignRole($role->name);
+            return redirect(route('login'))->with('success', 'Seja bem vindo');
+        } elseif ($request->role == 'super-admin') {
+            $role = Role::findByName($request->role);
+
+            $user = $request->only(
+                'name', 'last_name','email');
+            $user['password'] = Hash::make($request->password);
+            $logopath = $request->file('perfil')->store('logo');
+            $user['perfil'] = $logopath; 
+            $user = User::create($user);
+            $email=$user->email;
+            $password=$request->password;
+            Session::put('empresa', $password);
+            Session::put('email', $email);
             $user->assignRole($role->name);
             return redirect(route('login'))->with('success', 'Seja bem vindo');
         }
@@ -132,6 +177,8 @@ class RegisterController extends Controller
                 return view('auth.company_registration',['provincias_list' => $provincia,]);
             } elseif ($request->query('query') == "user") {
                 return view('auth.register');
+            } elseif ($request->query('query') == "super-admin") {
+                return view('auth.registeradmin');
             } elseif ($request->query('query') == "chooseAccount") {
                 return view('auth.choose_accout_type');
             }
@@ -139,4 +186,20 @@ class RegisterController extends Controller
             return redirect(route('home'));
         }
     }
+
+    protected function updateUser(Request $request, $id)
+    {
+        return $request;
+        if ($request->role == 'user') {
+            $user = User::find($id);
+        if($user){
+            $data=$request->all();
+            $user->update($data);
+            return redirect()->back()->with('success', 'sucesso');
+        }
+         return redirect()->back()->with('status', 'Erro ao actualizar!');
+        }
+    }
+
+    
 }

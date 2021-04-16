@@ -25,21 +25,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
         <!-- euclideo incoming changes -->
-            <link href="{{ asset('css/company.css') }}" rel="stylesheet">
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
-            <link rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                
-
-    </head>
+        <link href="{{ asset('css/company.css') }}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            
+    <!-- Carousel -->
+     
+      </head>
 
     <body>
         <div id="app">
             <div class=" gold uk-light ">
-                <nav class="uk-navbar-container uk-tile-default">
-                    <div class="uk-container">
-                        <div class="uk-navbar" data-uk-navbar>
+                <nav class="uk-navbar-container uk-tile-default" uk-navbar="dropbar: true; align: button;">
+                    <!-- <div class="uk-container"> -->
+                        <!-- <div class="uk-navbar" data-uk-navbar> -->
                             <div class="uk-navbar-left">
 
 
@@ -104,7 +105,7 @@
                                         <a href="#" style="color: #000000;" uk-navbar-toggle-icon > &nbsp;
                                             <span class="ion-ios-arrow-down"></span>
                                         </a>
-                                        <div class="uk-navbar-dropdown uk-margin-remove-top uk-margin-remove-right" >
+                                        <div class="uk-navbar-dropdown" >
                                             <ul class="uk-nav uk-navbar-dropdown-nav uk-list uk-list-striped">
                                                 <li class="uk-padding-remove">
                                                     <a style="color: #32d296;" href="#">
@@ -134,8 +135,8 @@
                                     @endguest
                                 </ul>
                             </div>
-                        </div>
-                    </div>
+                        <!-- </div>
+                    </div> -->
                 </nav>
             </div>
 
@@ -169,6 +170,8 @@
             integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
             crossorigin="anonymous"></script>
 
+
+       
         @yield('post-script')
         @yield('post-script')
     </body>

@@ -17,6 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('phone');
+            $table->tinyInteger('status')->default(1);
             $table->string('alternative_phone')->nullable();
             $table->string('classification');
             $table->string('about_company');

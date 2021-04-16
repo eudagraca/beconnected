@@ -49,13 +49,30 @@
         <li class=""><a href="#" uk-icon="more-vertical"></a></li>
     </ul>
 </div> -->
+    <ul class="uk-list uk-inline uk-width-expand@m uk-text-capitalize uk-label-success uk-inline " uk-img style="color: black;">
+        <li class="uk-position-top-left uk-padding-remove-bottom"><a class="uk-link-reset uk-text-lowercase"  href="{{ route('message.home') }}"><div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto uk-section-danger">
+                <a href="{{ route('back') }}" class="uk-icon-link uk-icon-button uk-button-default" uk-icon="arrow-left"></a>
+                    
+                </div>
+                <div class="uk-width-expand uk-padding-remove-bottom">
+                    <p class="uk-margin-remove-bottom"></p>
+                    <!-- <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p> -->
+                </div>
+            </div>
+            </a></li>
+        <!-- <li class="uk-position-top-center uk-padding-remove-right"><a class="uk-link-reset" href="" >Mensagens</a></li> -->
+        <li class="uk-position-top-right"><a class="uk-link-reset" href="" uk-icon=""></a></li>
+    </ul>
+<br><br>
 
+<!-- <a href="{{ route('home') }}" class="">Home</a> -->
 <div class="uk-container">
 
 <ul class="uk-subnav uk-subnav-pill uk-flex-center uk-padding-remove uk-margin-remove">
     <li class="uk-margin-remove-button">
     <a   href="{{ url("storage/{$company->logo}") }}" data-caption="{{ $company->company_name}}"> 
-        <img class="uk-border-circle" style="width: 180px; height: 180px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
+        <img class="uk-border-circle uk-image-possition" style="width: 220px; height: 220px; background-color: rgba(240, 248, 255, 0)" alt="Logo"  uk-img data-src="{{ url("storage/{$company->logo}") }}" />   
     </a>
     </li>
     <li class="uk-text-truncate"><a href="#">{{ $company->company_name }}
@@ -69,6 +86,11 @@
 
             <p class="uk-text-left uk-text-muted uk-padding-remove uk-margin-remove">{{ $company->district }}
                 {{ $company->province }} </p><br>
+            <p class="uk-padding-remove uk-margin-remove" uk-margin>
+                <a class="uk-button uk-button-default uk-button-small uk-text-capitalize" uk-toggle="target: #offcanvas-flip">Message</a>
+                <a class="uk-button uk-button-primary uk-button-small uk-text-capitalize" href="https://wa.me/258{{ $company->phone}}">WhatsApp</a>
+                <button class="uk-button uk-button-default uk-button-small uk-text-capitalize" disabled>Gostar</button>
+            </p>
             <!-- <ul class=" uk-flex-center uk-padding-remove uk-margin-remove" >
                 <a class="uk-icon-button uk-button-default" type="button" uk-icon="commenting" uk-toggle="target: #offcanvas-flip"></a>
                 <a href="https://www.facebook.com/" class="uk-icon-button  uk-margin-small-right" uk-icon="facebook"></a>
@@ -130,9 +152,9 @@
 
         <div class="uk-margin-medium-top uk-padding-remove">
             <ul class="uk-flex-center" uk-tab>
-                <li class="uk-active"><a href="#">Galeria</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Denuncie</a></li>
+                <li class="uk-active"><a class="uk-text-capitalize" href="#">Galeria</a></li>
+                <li><a href="#" class="uk-text-capitalize" >Sobre</a></li>
+                <li><a href="#" class="uk-text-capitalize">Denuncie</a></li>
             </ul>
 
             <ul class="uk-switcher uk-margin">
@@ -340,7 +362,7 @@
                             <button class="uk-offcanvas-close" type="button" uk-close></button>
                             <ul class="uk-padding uk-padding-remove-bottom uk-text-lowercase uk-width-expand@m uk-inline uk-dark"  uk-tab>
                                 <li class="uk-position-top-left"><a class="uk-link-reset uk-text-lowercase uk-dark"  href="#">Convesras</a></li>
-                                <li class="uk-position-top-right"><a class="uk-link-reset uk-text-lowercase uk-dark" href="#" uk-icon="more-vertical"></a></li>
+                                <!-- <li class="uk-position-top-right"><a class="uk-link-reset uk-text-lowercase uk-dark" href="#" uk-icon="more-vertical"></a></li> -->
                             </ul>
                             <ul class="uk-switcher uk-margin">
                                 <li>
@@ -384,25 +406,6 @@
                                 </li>
 
                                 <li>
-                                    <div class="uk-child-width-1-2 uk-text-center" uk-grid>
-                                        <div>
-                                            <div class="uk-card uk-alert-success uk-card-body">Ver conversa</div>
-                                        </div>
-                                        <div>
-                                            <div class="uk-card uk-alert-warning uk-card-body">Iniciar conversa</div>
-                                        </div>
-                                        <div>
-                                            <div class="uk-card uk-alert-danger uk-card-body">Voltar a empresa</div>
-                                        </div>
-                                        <div>
-                                            <div class="uk-card uk-card-default uk-card-body">
-                                            <!-- <a href="" class="uk-icon-button uk-button-primary uk-margin-small-right" uk-icon="twitter"></a> -->
-                                            <a href="" class="uk-icon-button uk-button-primary  uk-margin-small-right" uk-icon="facebook"></a>
-                                            <a href="" class="uk-icon-button uk-label-success uk-margin-small-right" uk-icon="whatsapp"></a>
-                                            <a href="" class="uk-icon-button uk-button-default" uk-icon="google-plus"></a>    
-                                            </div>
-                                        </div>
-                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -601,11 +604,17 @@
     </div>
 </div> -->
 
+<!--     <button class="uk-icon-button uk-button-default uk-border-circle uk-button-larg uk-label" type="button" id="open"><span
+            uk-icon="commenting"></span></button> -->
+    <!-- <button class="uk-icon-button uk-button-default uk-border-circle uk-button-larg uk-label" ></button>
+        <a class="" type="button" uk-icon="commenting" id="openi" uk-toggle="target: #offcanvas-flip"></a>
+    </button>
 
-    <!-- <button class="uk-button uk-button-primary uk-border-circle uk-button-small" id="open"><span
-            uk-icon="comment"></span></button> -->
-    <button class="uk-icon-button uk-button-default uk-marge-botton-remove uk-border-circle uk-button-larg uk-label-success" type="button" id="open"><span
-            uk-icon="commenting"></span></button>
+
+    <button class="uk-icon-button  uk-button-default uk-align-rigth uk-border-circle uk-label-success"  type="button" id="openWhatsaap">
+        <a href="https://wa.me/258{{ $company->phone}}" class="" uk-icon="icon: whatsapp; ratio: 3.5"></a>
+    </button> -->
+            
 
     <div class="uk-card uk-card-default chat-form-popup uk-margin-medium-bottom" id="chat-form">
         <button id="close" class="uk-margin-small-right uk-align-right uk-margin-small-top uk-text-danger"

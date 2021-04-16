@@ -10,7 +10,7 @@
                     {{ csrf_field() }}
 
                         <div class="js-upload uk-placeholder uk-text-center">
-                        <legend class="uk-legend " for="Product Name">Editar imagem da montra</legend>
+                        <legend class="uk-legend " for="Product Name">Editar imagem</legend>
                         <!-- <label for="Product Name">Product photos (can attach more than one):</label> -->
                             <div class="uk-margin">
                                 <div class="uk-width-1-1" uk-grid>

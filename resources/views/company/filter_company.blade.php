@@ -43,21 +43,23 @@
     </div>
 </div> -->
 
-<div class="uk-section uk-section-small uk-section-muted ">
+<div class="uk-section uk-section-small uk-margin-remove-top uk-padding-remove">
     <div class="uk-container">
-        <div class="uk-grid-small  uk-text-center" uk-grid>
-
-            <table class="uk-table uk-table-justify uk-table-striped uk-table-divider">
-            @if($errors->any())
+        <div class="uk-grid-small uk-card-default   uk-text-center" uk-grid>
+            @if(!$empresas->count())
+                <a href="{{ route('home') }}">Voltar</a><br><br> <h4>Ainda não temos dados para sua consulta nesse endereço</h4>
+            @endif
+            <table class="uk-table uk-table-justify uk-table-divider">
+            <!-- @if($errors->any())
             <h4>{{$errors->first()}}</h4>
             Session::has('msg')
-            @endif
+            @endif -->
             @foreach ($empresas as $company)
                 <thead>
-                    <tr>
-                        <th class="uk-width-small">Perfil</th>
-                        <th>Nome</th>
-                        <th>Endereço</th>
+                    <tr class="uk-margin-remove uk-padding-remove">
+                        <th class="uk-width-small"></th>
+                        <th></th>
+                        <!-- <th>Endereço</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -71,12 +73,12 @@
                                 </a>
                                 </div>
                                 @else
-                                    <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
-                                    <canvas width="300" height="100"></canvas>
+                                    <img class="uk-border-circle" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="perfil"  uk-img data-src="../storage/photos/Deafult-Profile-Pitcher.png" />
                                 @endif
                             </td>
-                        <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->company_name }}</a></td>
-                        <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->address }}</a></td>
+                            <td><a class="uk-link-reset uk-margin-remove uk-padding-remove" href="{{ route('company.show', $company) }}"><span class="uk-text-bold uk-text-secondary">{{ $company->company_name }}</span> <br><span class="uk-text-small">{{ $company->address }} </span> <br>  <p uk-margin ><button class="uk-button uk-button-primary uk-text-capitalize uk-button-small">conecte-se</button></p></a>
+                        </td>
+                        <!-- <td><a class="uk-link-reset" href="{{ route('company.show', $company) }}">{{ $company->address }}</a></td> -->
                     
                         </a>
                     </tr>

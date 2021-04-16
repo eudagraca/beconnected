@@ -15,25 +15,23 @@
            <a href="{{ route('home') }}">Voltar</a> <h4>Ainda não temos dados para sua consulta</h4>
         @endif
             @foreach ($images as $image)
-            
             <div>
                 <div class="uk-inline  uk-padding-remove">
-                    @if ($image->imageDetail->src) 
-                        <img style="width: 250px; height: 250px;" width="500" height="100" src="{{ url("storage/{$image->imageDetail->src}") }}" alt="Resultado">
+                    @if ($image->imageDetail) 
+                        <img style="width: 100%; height: 250px; border-radius: 10px;" width="500" height="100" src="{{ url("storage/{$image->imageDetail->src}") }}" alt="Resultado">
                     @else
-                        <img width="500" height="100" src="../storage/empresas/k0PxvXRgAia05jy9kgk85QaWyfxUH6IKZiiauvsu.jpg" alt="logo">
+                        <img style="width: 100%; height: 250px; border-radius: 10px;" width="500" height="100" src="{{ asset('storage/Company/2Yj3PEjVBMlc3WthJXgyRrWJt8hDiLUMXVYyJjJX.jpg')}}" alt="logo">
                     @endif
+                    <br><br><br><br>
                     <div class="uk-overlay uk-overlay-default">
-                        <p>
-                            <div class="uk-card-header uk-padding-remove">
-                                    <div class="uk-grid-small uk-flex-middle uk-overlay uk-padding-remove uk-overlay-default  uk-dark" uk-grid>
-                                        <div class="uk-overlay uk-padding-remove uk-position-bottom ">
-                                            <h6>{{ $image->name}}</h6><!-- <span>Preço: {{ $image->price}}</span> -->
-                                            <h6 class=" uk-margin-remove-top"><a href="{{ route('company.show', $image->company_id) }}" class="uk-button uk-text-center">Ver mais detalhes</a></h6>
-                                        </div>
-                                    </div>
+                        <div class="uk-card-header uk-padding-remove">
+                            <div class="uk-grid-small uk-flex-middle uk-overlay uk-padding-remove uk-overlay-default  uk-dark" uk-grid>
+                                <div class="uk-overlay uk-padding-remove uk-inline uk-position-bottom ">
+                                    <h4 class="uk-text-muted">{{ $image->name}}</h4><span class="uk-float-right"> <h6>{{ $image->price }} MZN </h6></span>
+                                    <button class="uk-button uk-button-primary uk-padding-remove uk-margin-remove-top  uk-button-small"><a href="{{ route('company.show', $image->company) }}" class="uk-button uk-text-center">CONTACTAR EMPRESA</a></button>
                                 </div>
-                        </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

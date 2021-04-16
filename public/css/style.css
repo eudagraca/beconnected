@@ -37,12 +37,14 @@
     background-image: linear-gradient(to right, #2ccd27,#378b72);
     border: none;
     color: #FFF;
-    padding: 4% 23%;
-    border-radius: 12px;
+   /*  padding: 4% 23%; */
+    padding: 10%;
+/*     border-radius: 12px; */
+border-radius: 50%;
   }
 
 .uk-beconnected {
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Comfortaa',cursive;
 }
 
@@ -83,7 +85,7 @@
     background-image: linear-gradient(#ffffff, #ffffff);
     margin: 5px;
     box-shadow: #ffffff;
-    border: 7px snow solid;
+    border: 7px rgb(226, 226, 226) solid;
     box-sizing: border-box;
   }
 
@@ -192,6 +194,14 @@
     /* background-image: linear-gradient(#1877F2, #3b5998); 
     background-image: linear-gradient(#3b5998, #3b5998);/* Azul do FB */
     
+}
+
+.uk-fixed-navigation {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 50px;
+    z-index: 1030;
 }
 
 .logocolor {

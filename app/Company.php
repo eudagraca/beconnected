@@ -18,7 +18,7 @@ class Company extends Model
     } */
   use Hashidable;
   protected $fillable = [
-      'company_name', 'email', 'phone', 'alternative_phone', 'classification',
+      'company_name', 'email', 'phone', 'status', 'alternative_phone', 'classification',
       'about_company', 'main_services', 'address',
       'license', 'segment_area', 'user_id', 'logo', 'banner','distrito_id', 'provincia_id'
   ];
@@ -26,6 +26,17 @@ class Company extends Model
   public function user(){
     return $this->belongsTo(User::class);
   }
+
+  /* public function Image () {
+    return $this->belongsTo(Image::class);
+} */
+public function Image () {
+    return $this->hasMany(Image::class);
+}
+
+public function Concurso () {
+    return $this->hasMany(Concurso::class);
+}
 
   public function search($filter = null, $Provincia_id = null, $distrito_id = null )
   {

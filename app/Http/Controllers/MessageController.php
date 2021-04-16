@@ -112,6 +112,7 @@ class MessageController extends Controller
                 ]);
             } catch (\Exception $e) {
                 $message->delete();
+            
             }
         }
     }

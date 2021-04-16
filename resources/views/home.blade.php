@@ -3,7 +3,7 @@
 <div class="uk-container">
     <div class="uk-section uk-section-small uk-tile-default">
         <div class="uk-margin-remove uk-padding-remove">
-            <ul class="uk-flex-center" uk-tab>
+            <ul class="uk-flex-center"  uk-tab>
                 <li><h6 class="uk-text-bolder uk-beconnected  uk-text-center"><span class="uk-be">Be</span>connected</h6>
             
                 </li>
@@ -12,11 +12,13 @@
 
         <div class="uk-margin-medium-top">
             <ul class="uk-flex-center" uk-tab>
-                <li class="uk-active"><a href="#">Buscar</a></li>
-                <li><a href="#">Empresas</a></li>
+                <li class="uk-active"><a href="#" class="uk-text-capitalize">Buscar</a></li>
+                <li><a href="#" class="uk-text-capitalize">Empresas</a></li>
+                <!-- <li><a href="#" class="uk-text-capitalize">yu</a></li> -->
+                <li><a href="#" class="uk-text-capitalize">Concursos</a></li>
             </ul>
 
-            <ul class="uk-switcher uk-margin">
+            <ul class="uk-switcher uk-margin ">
                 <li>
                     <div class="uk-card uk-card-body  uk-text-center">
                         <!-- <h6 class="uk-card-title uk-text-muted">|</h6> -->
@@ -27,7 +29,7 @@
                                 <div class="uk-margin">
                                     <div class="uk-inline radius2">
                                         <span class="uk-form-icon" uk-icon="icon:"></span>
-                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="search"></span>
+                                        <span class="uk-form-icon uk-form-icon-flip" type="submit" uk-icon="search"></span>
                                         <input class="uk-inputt uk-input radius2" name="filter" type="text" placeholder="Pesquisar ou escrever o endereço">
                                     </div>
                                 </div>
@@ -45,11 +47,12 @@
                                 <div class="uk-card uk-grid-small uk-grid-collapse uk-width-1-4@s uk-margin " uk-grid>
                                     <div class="uk-card-media-center  uk-cover-container uk-margin-remove" >
                                         @if ($company->logo) 
-                                        <div class=" uk-padding-left" style="margin-left: 50px;">
-                                            <img style="width: 200px; height: 200px" width="300" height="100" class="  uk-border-circle" src="{{ url("storage/{$company->logo}") }}" alt="logo">
+                                        <div class=" uk-padding-left">
+                                            <img style="width: 100%; height: 250px; border-radius: 10px;" class="" src="{{ url("storage/{$company->logo}") }}" alt="logo">
                                         </div>
                                         @else
-                                            <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+                                        <!-- <img class="uk-border-circle" style="width: 200px; height: 200px; background-color: rgba(240, 248, 255, 0)" alt="perfil"  uk-img data-src="../storage/photos/Deafult-Profile-Pitcher.png" /> -->
+                                            <img style="width: 250px; height: 250px;" class="uk-padding-remove" src="../storage/photos/Deafult-Profile-Pitcher.png" alt="" uk-cover>
                                             <canvas width="300" height="100"></canvas>
                                         @endif
                                         <!-- <img class="uk-padding-remove" src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover-->
@@ -58,7 +61,7 @@
                                     <div class="uk-width-1-1@m uk-margin-remove-top uk-padding-remove">
                                         <div class="uk-card-body uk-padding-small">
                                             <h5>{{ $company->company_name }}</h5>
-                                            <a href="{{ route('company.show', $company) }}">Conecte-se</a>
+                                            <button class="uk-button uk-button-primary uk-padding-remove uk-margin-remove-top  uk-button-small"><a class="uk-button uk-text-center" href="{{ route('company.show', $company) }}">CONTACTAR EMPRESA</a></button>
                                             <p>{{ $company->address }} </p>
                                             <p>{{ $company->segment_area }}</p>
                                         </div>
@@ -72,17 +75,87 @@
                     <!-- End campany show -->
                     </div>
                 </li>
+
+                <li>
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; sets: true; finite: true">
+                    <ul class=" uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-4@m uk-thumbnav" uk-margin uk-tab>
+                    @foreach($companies as $slider)
+                        <li class="">
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top item image {{ $loop->first ? ' active' : '' }} uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+                                <img src="{{url('storage')}}/{{$slider->logo}}" style="width: 300px; height: 200px" alt="slider" title="Image Slideshow">
+                            </div>
+                            <div class="uk-card-body">
+                                <h4 class="uk-card-title uk-text-small uk-text-bold">{{ $slider->company_name}}</h4>
+                                <p class="uk-text-small">{{ $slider->address}}</p>
+                                </p><a class=" uk-text-center" href="{{ route('company.show', $company) }}">CONTACTAR EMPRESA</a></p>
+                            </div>
+                        </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                </div>
+                            <!-- @foreach($companies as $key => $slider)
+                            
+                                <div class=" carousel-item {{$key == 0 ? 'active' : '' }}">
+                                    <img style="width: 300px; height: 200px" class=" d-block w-100"  alt="..." src="{{url("storage/{$slider->logo}")}}" > 
+                                </div>
+                                <div class="uk-position-center uk-panel"><h1>1</h1></div>
+                                
+                            @endforeach -->
+
+
+                            <!-- <div class="group-home-slideshow uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+                                <div class="home-slideshow-inner col-sm-12">
+                                    <div class="home-slideshow">
+                                    <div id="home_main-slider" class="carousel slide">
+                                        
+                                        <ol class="carousel-indicators">
+                                            @foreach($companies as $photo)
+                                                <li data-target="#home_main-slider" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                                            @endforeach
+                                        </ol>
+                                        <div class="carousel-inner uk-thumbnav" uk-slider>
+                                        @foreach($companies as $slider)
+                                        <div class=" item image {{ $loop->first ? ' active' : '' }} uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+                                            <img src="{{url('storage')}}/{{$slider->logo}}" style="width: 300px; height: 200px" alt="slider" title="Image Slideshow">
+                                            <div class="slideshow-caption position-right">
+                                            <div class="slide-caption">
+                                                <div class="group-caption">
+                                                <div class="content">
+                                                    @if(!empty($slider->title))
+                                                    <span class="title">
+                                                    {{$slider->title}}
+                                                    </span>
+                                                    @endif
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                        </div>
+                                        <a class="left carousel-control" href="#home_main-slider" data-slide="prev">
+                                        <span class="icon-prev"></span>
+                                        </a>
+                                        <a class="right carousel-control" href="#home_main-slider" data-slide="next">
+                                        <span class="icon-next"></span>
+                                        </a>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div> -->
+                         
+                         
+                
+                </li>
             </ul>
         </div>
 
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -96,7 +169,7 @@
                     <!-- <button class="btn-red search-form uk-button uk-dark uk-button-default uk-float-left uk-button-primary" type="button">Faca sua Busca</button> -->
                     <div class="uk-container">
 
-                            <br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br>
                         <ul>
 
                         <form action="{{ route('company.search') }}" method="POST" class="uk-form-stacked ">
@@ -106,41 +179,71 @@
                                     <label class="uk-form-label" for="form-horizontal-select"></label>
                                     <div class="uk-width-1-1@s">
                                     <!-- <input class="uk-input typeahead radius " type="text" name="filter" placeholder="Em que podemos ajudar?"> -->
-                                    <select class="uk-select radius uk-input  uk-width-1-1@s typeahead" id="ramo" name="ramo" value="ramo" id="form-horizontal-select">
-                                    <option name="" value="">Buscando por:</option>
-                                    <option name="ramo" value="Clinica">Clinica</option>
-                                    <option name="ramo" value="Farmacia">Farmacia</option>
-                                    <option name="ramo" value="Doces de salgados">Doces e salgados</option>
-                                    <option name="ramo" value="Servicos de Cuntring">Servicos de Cuntring</option>
-                                    <option name="ramo" value="Consultoria de advogacia">Consultoria de advogacia</option>
-                                    <option name="ramo" value="Consultoria de Contabilidade">Consultoria de Contabilidade</option>
-                                    <option name="ramo" value="Consultoria de Agronegocio">Consultoria de Agronegocio</option>
-                                    <option name="ramo" value="Aluminio e vidro">Aluminio e vidro</option>
-                                    <option name="ramo" value="loja de Roupa Femenina">loja de Roupa Femenina</option>
-                                    <option name="ramo" value="loja de Roupa Masculina">loja de Roupa Masculina</option>
-                                    <option name="ramo" value="loja de Roupa M/F">loja de Roupa M/F</option>
-                                    <option name="ramo" value="loja de Calcado Femenino">loja de Calcado Femenino</option>
-                                    <option name="ramo" value="loja de Calcado Masculino">loja de Calcado Masculino</option>
-                                    <option name="ramo" value="loja de Calcado M/F">loja de Calcado M/F</option>
-                                    <option name="ramo" value="Salao de cabelo Femenino">Salao de cabelo Femenino</option>
-                                    <option name="ramo" value="Salao de cabelo Masculino">Salao de cabelo Masculino</option>
-                                    <option name="ramo" value="Hotel">Hotel</option>
-                                    <option name="ramo" value="Pensao">Pensao</option>
-                                    <option name="ramo" value="Construção Civil">Construção Civil</option>
-                                    <option name="ramo" value="Doces de salgados">Doces de salgados</option>
-                                    <option name="ramo" value="Transporte">Transporte</option>
-                                    <option name="ramo" value="Oficina">Oficina</option>
-                                    <option name="ramo" value="Micro Banco">Micro Banco</option>
-                                    <option name="ramo" value="Agricola">Agro Negocio</option>
-                                    <option name="ramo" value="Pecuaria">Pecuaria</option>
-                                    <option name="ramo" value="Ferragem">Ferragem</option>
-                                    <option name="ramo" value="Borracharia">Borracharia</option>
-                                    <option name="ramo" value="Agencia de viagem">Agencia de viagem</option>
-                                    <option name="ramo" value="Restaurante">Restaurante</option>
-                                    <option name="ramo" value="Ornamentação de Eventos">Ornamentação de Eventos</option>
-                                    <option name="ramo" value="Moda">Moda</option>
-                                    <option name="ramo" value="Botique">Botique</option>
-                                </select>
+                                    <select class="uk-select radius uk-input  uk-width-1-1@s typeahead" id="ramo" required name="ramo" value="ramo" id="form-horizontal-select">
+                                        <option name="" value="">Buscando por:</option>                                    <option name="segment_area" value="Advogados">Advogados</option>
+                                        <option name="segment_area" value="Agências de Turismo">Agências de Turismo</option>
+                                        <option name="segment_area" value="Agências de Viagens">Agências de Viagens</option>
+                                        <option name="segment_area" value="Agências de Publicidade">Agências de Publicidade</option>
+                                        <option name="segment_area" value="Alumínio e vidro">Alumínio e vidro</option>
+                                        <option name="segment_area" value="Arquitectos e Projectos">Arquitectos e Projectos</option>
+                                        <option name="segment_area" value="Automóveis">Automóveis</option>
+                                        <option name="segment_area" value="Automóveis e Peças">Automóveis e Peças</option>
+                                        <option name="segment_area" value="Automóveis Reparação">Automóveis Reparação</option>
+                                        <option name="segment_area" value="Bate chapa">Bate chapa</option>
+                                        <option name="segment_area" value="Barres & bebidas ">Barres & Bebidas</option>
+                                        <option name="segment_area" value="Carpitarias e Mercenarias">Carpitarias e Mercenarias</option>
+                                        <option name="segment_area" value="Casas">Casas</option>
+                                        <option name="segment_area" value="Clinica">Clinica</option>
+                                        <option name="segment_area" value="Clinica Dentárias">Clinica Dentárias</option>
+                                        <option name="segment_area" value="Clinica Veterinárias">Clinica Veterinárias</option>
+                                        <option name="segment_area" value="Consultores">Consultores</option>
+                                        <option name="segment_area" value="Consultoria Empresarial">Consultoria Empresarial</option>
+                                        <option name="segment_area" value="Contabilidade">Contabilidade</option>
+                                        <option name="segment_area" value="Despachantes Aduaneiros">Despachantes Aduaneiros</option>
+                                        <option name="segment_area" value="Escola de Musica & Dança">Escola de Musica & Dança</option>
+                                        <option name="segment_area" value="Escola de Lingua">Escola de Lingua</option>
+                                        <option name="segment_area" value="Farmacia">Farmacia</option>
+                                        <option name="segment_area" value="Ferragens">Ferragens</option>
+                                        <option name="segment_area" value="Ginásios">Ginásios</option>
+                                        <option name="segment_area" value="Hoteis">Hotéis</option>
+                                        <option name="segment_area" value="Hoteis, Pousadas">Hotéis, Pousadas</option>
+                                        <option name="segment_area" value="Imobiliária">Imobiliária</option>
+                                        <option name="segment_area" value="Lavandarias">Lavandarias</option>
+                                        <option name="segment_area" value="loja de Roupa Femenina">loja de Roupa F</option>
+                                        <option name="segment_area" value="loja de Roupa Masculina">loja de Roupa M</option>
+                                        <option name="segment_area" value="loja de Roupa M/F">loja de Roupa M&F</option>
+                                        <option name="segment_area" value="loja de Calcado Femenino">loja de Calcado F</option>
+                                        <option name="segment_area" value="loja de Calcado Masculino">loja de Calcado M</option>
+                                        <option name="segment_area" value="loja de Calcado M/F">loja de Calcado M/F</option>
+                                        <option value="loja de equipamento de cozinha">loja de e equipamento de cozinha</option>
+                                        <option value="loja de equipamento e material de escritorio">loja de e equipamento & material de escritorio</option>
+                                        <option value="loja de equipamento para limpeza">loja de e equipamento para limpeza</option>
+                                        <option name="segment_area" value="loja de Roupas para Crianças">loja de Roupas para Crianças</option>
+                                        <option name="segment_area" value="loja de Móveis Mobílias">loja de Móveis & Mobílias</option>
+                                        <option name="segment_area" value="loja de Perfumes e Cosméticos">loja de Perfumes e Cosméticos</option>
+                                        <option name="segment_area" value="Óptica">Óptica</option>
+                                        <option name="segment_area" value="Parafusos e Porcas">Parafusos e Porcas</option>
+                                        <option name="segment_area" value="Pensões">Pensões</option>
+                                        <option name="segment_area" value="Pintores de Construção civil">Pintores de Construção civil</option>
+                                        <option name="segment_area" value="Pizzerias">Pizzerias</option>
+                                        <option name="segment_area" value="Pneus & Equipamentos">Pneus & Equipamentos</option>
+                                        <option name="segment_area" value="Recauchutagem & Vulcanizaçao">Recauchutagem & Vulcanizaçao</option>
+                                        <option name="segment_area" value="Rent Car">Rent Car</option>
+                                        <option name="segment_area" value="Restaurantes">Restaurantes</option>
+                                        <option name="segment_area" value="Segurança">Segurança</option>
+                                        <option name="segment_area" value="Sistemas de segurança Electrónica">Sistemas de segurança Electrónica</option>
+                                        <option name="segment_area" value="Supermecados">Supermecados</option>
+                                        <option name="segment_area" value="Talhos">Talhos</option>
+                                        <option name="segment_area" value="Táxis">Táxis</option>
+                                        <option name="segment_area" value="Técnicos de contas">Técnicos de contas</option>
+                                        <option name="segment_area" value="Transporte de carga">Transporte de carga</option>
+                                        <option name="segment_area" value="Transporte de Mercadorias">Transporte de Mercadorias</option>
+                                        <option name="segment_area" value="Transporte de Passageiros">Transporte de Passageiros</option>
+                                        <option name="segment_area" value="Turismo Empreendimentos">Turismo Empreendimentos</option>
+                                        <option name="segment_area" value="Agricola">Agro negócio</option>
+                                        <option name="segment_area" value="Ornamentação de Eventos">Ornamentação de Eventos</option>
+                                        <option name="segment_area" value="Outros">Outros</option>
+                                    </select>
                                 </div>
                                     <!-- <input class="typeahead uk-input typeahead radius " type="text" name="filter" placeholder="Em que podemos ajudar?"> -->
                                 </div>
@@ -150,7 +253,7 @@
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-select"></label>
                                         <div class="uk-form-controls">
-                                            <select name="provincia_id" class="uk-select radius formselect required"  id="provincia_id">
+                                            <select name="provincia_id" class="uk-select radius formselect required" required id="provincia_id">
                                                 <option  disabled selected>Qual é tua Provincia</option>
                                                     @foreach($provincias_list as $provincia)
                                                 <option value="{{ $provincia->id }}">
@@ -164,7 +267,7 @@
                                     <div class="uk-margin">
                                         <label class="uk-form-label" for="form-horizontal-select"></label>
                                         <div class="uk-form-controls">
-                                            <select class="uk-select radius" name="distrito_id" value="{{ old('distrito_id') }}" id="distrito_id">
+                                            <select class="uk-select radius" name="distrito_id" required value="{{ old('distrito_id') }}" id="distrito_id">
                                                 <option>Qual é seu distrito</option>
                                             </select>
                                         </div>
@@ -194,6 +297,99 @@
     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
+</div>
+
+
+
+<div class="uk-section uk-section-default">
+    <div class="uk-container">
+
+    <ul class="uk-flex-center" uk-tab>
+                <li class="uk-active"><a href="#" class="uk-text-capitalize">Beconnected</a></li>
+                <li><a href="#" class="uk-text-capitalize">Sobre nós</a></li>
+                <!-- <li><a href="#" class="uk-text-capitalize">Equipe</a></li> -->
+                <li><a href="#" class="uk-text-capitalize">Contactos</a></li>
+            </ul>
+
+            <ul class="uk-switcher uk-margin ">
+                <li>
+                    <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                        <div>
+                        <!-- <span><a href="{{ route('superadmin') }}" class="uk-link-reset">Be</a>connected Todos direitos reservados 2021 <span></span><br> -->
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                        <div>
+                            <h4>Sobre Nós</h4>
+                            <p>Be connected é uma plataforma que visa conectar empresas e seus pontencias clientes, bem como estabelecer o intercambio e a partilha de informações entre elas.</p>
+                        </div>
+                        <div>
+                            <h4>Missão</h4>
+                            <p>
+                                Promover o intercâmbio entre as empresas e oferecer soluções rapidas aos clientes visando impulsionar o crescimento, visibilidade e maior oportunidade no ecossistema empresarial.
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Visão</h4>
+                            <p class="uk-margin-remove uk-padding-remove">
+                                Ser referência nacional e internacional no intercâmbio empresarial e exposição de empresas, agregando valores a sociedade e as empresas.
+                            </p>
+                        </div>
+                    </div>
+                    <span><a href="{{ route('superadmin') }}" class="uk-link-reset">Be</a>connected Todos direitos reservados 2021 <span></span><br>
+                </li>
+
+                <!-- <li>
+                    <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                        <div>
+                            <h4>Jac Cuambe Confudador & CEO</h4>
+                        </div>
+                        <div>
+                            <h4>Nossa equipe</h4>
+                            <p>
+                            Jac Cuambe Confudador & CEO <br>
+                            Euclideo Confudador & Dev. <br><br>
+                            <a href="{{ route('registeradmin', ['query' => 'super-admin']) }}" class="uk-link-reset">Be connected Todos direitos reservados</a><br>
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Euclideo Confudador & Dev.</h4>
+                        </div>
+                    </div>
+                </li> -->
+
+                <li>
+                    <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+                        <!-- <div>
+                            <h4>Sobre Nós</h4>
+                            <p>Be connected company é uma plataforma que visa conectar empresas e seus pontenciasi clientes bem como estabelecer o intercambio e a partilha de informações entre elas.</p>
+                        </div>
+                        <div>
+                            <h4>Nossa equipe</h4>
+                            <p>
+                            Jac Cuambe Confudador & CEO <br>
+                            Euclideo Confudador & Dev. <br><br>
+                            <a href="{{ route('registeradmin', ['query' => 'super-admin']) }}" class="uk-link-reset">Be connected Todos direitos reservados</a><br>
+                            </p>
+                        </div> -->
+                        <div>
+                            <h4><a href="{{ route('registeradmin', ['query' => 'super-admin']) }}" class="uk-link-reset">Contactos</a></h4>
+                            <p class=""><span class="uk-margin-small-right" uk-icon="icon: receiver;"></span>Tel:+258 840442932</p>
+                            <p class=""><span class="uk-margin-small-right" uk-icon="icon: mail;"></span>BeconnectedTeamLeader@gmail.com</p>
+                            <p class=""><span class="uk-margin-small-right" uk-icon="icon: whatsapp;"></span>WhatsAap: +258040442932</p>
+                            <p class=""><span class="uk-margin-small-right" uk-icon="icon: facebook;"></span>www.Facebook.com/Beconnected</p>
+                            <p class=""><span class="uk-margin-small-right" uk-icon="icon: instagram;"></span>www.Instagram.com/Beconnected</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+
+    </div>
 </div>
 
 <!-- <div>
@@ -501,17 +697,5 @@
         });
     });
 });
-</script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script type="text/javascript">
-    var path = "{{ route('search') }}";
-    $('input.typeahead').typeahead({
-        source:  function (query, process) {
-        return $.get(path, { query: query }, function (data) {
-                return process(data);
-            });
-        }
-    });
 </script>
 @endsection
